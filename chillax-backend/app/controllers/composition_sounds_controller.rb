@@ -1,0 +1,2 @@
+class CompositionSoundsController < ApplicationController
+end

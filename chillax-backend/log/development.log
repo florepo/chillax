@@ -88,3 +88,568 @@ Migrating to CreateUsers (20191202175724)
   [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8539999017000812865)[0m
   [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (129.0ms)[0m  [1m[35mCREATE DATABASE "chillax_backend_development" ENCODING = 'unicode'[0m
+  [1m[35m (50.4ms)[0m  [1m[35mCREATE DATABASE "chillax_backend_test" ENCODING = 'unicode'[0m
+  [1m[35m (13.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8539999017000812865)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20191202175724)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (2.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191202175724"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-12-03 09:06:41.104173"], ["updated_at", "2019-12-03 09:06:41.104173"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8539999017000812865)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8539999017000812865)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20191202175724)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.3ms)[0m  [1m[35mDROP TABLE "users"[0m
+  [1m[36mprimary::SchemaMigration Destroy (1.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20191202175724"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8539999017000812865)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8539999017000812865)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20191203091058)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191203091058"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCompositions (20191203091204)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE TABLE "compositions" ("id" bigserial primary key, "name" character varying, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_c9e37bc030"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_compositions_on_user_id" ON "compositions"  ("user_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191203091204"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSounds (20191203091449)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "sounds" ("id" bigserial primary key, "name" character varying, "description" character varying, "image_url" character varying, "sound_url" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191203091449"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCompositionSounds (20191203091823)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "composition_sounds" ("id" bigserial primary key, "volume" float, "sound_id" bigint NOT NULL, "composition_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_b5f3aacaae"
+FOREIGN KEY ("sound_id")
+  REFERENCES "sounds" ("id")
+, CONSTRAINT "fk_rails_61fa4bd102"
+FOREIGN KEY ("composition_id")
+  REFERENCES "compositions" ("id")
+)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_composition_sounds_on_sound_id" ON "composition_sounds"  ("sound_id")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_composition_sounds_on_composition_id" ON "composition_sounds"  ("composition_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191203091823"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8539999017000812865)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mSound Load (0.4ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.5ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[36mCompositionSound Load (0.5ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Create (0.7ms)[0m  [1m[32mINSERT INTO "sounds" ("name", "description", "image_url", "sound_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Sound 1"], ["description", "Weather: Rain, Thunder, claps and rolls at various distances"], ["image_url", "https://i.imgur.com/mVbmFQp.jpg"], ["sound_url", "http://bbcsfx.acropolis.org.uk/assets/07027060.wav"], ["created_at", "2019-12-03 09:57:34.174541"], ["updated_at", "2019-12-03 09:57:34.174541"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Create (0.2ms)[0m  [1m[32mINSERT INTO "sounds" ("name", "description", "image_url", "sound_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Sound 2"], ["description", "Birds: A country idyll, countryside atmosphere"], ["image_url", "https://www.rspb.org.uk/globalassets/images/birds-and-wildlife/bird-species-illustrations/redstart_male_1200x675.jpg?preset=largelandscape_desktop"], ["sound_url", "http://bbcsfx.acropolis.org.uk/assets/07074106.wav"], ["created_at", "2019-12-03 09:57:34.178276"], ["updated_at", "2019-12-03 09:57:34.178276"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Create (0.2ms)[0m  [1m[32mINSERT INTO "sounds" ("name", "description", "image_url", "sound_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Sound 3"], ["description", "Small river flowing"], ["image_url", "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ_abEBAKtpTJ7VhGw62GkIjYg53qfuOZMeU8S_VRPxGx6L-fHh"], ["sound_url", "http://bbcsfx.acropolis.org.uk/assets/07060074.wav"], ["created_at", "2019-12-03 09:57:34.180908"], ["updated_at", "2019-12-03 09:57:34.180908"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Create (0.2ms)[0m  [1m[32mINSERT INTO "sounds" ("name", "description", "image_url", "sound_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Sound 4"], ["description", "Crickets"], ["image_url", "https://scx1.b-cdn.net/csz/news/800/2018/whythesummer.jpg"], ["sound_url", "http://bbcsfx.acropolis.org.uk/assets/07043332.wav"], ["created_at", "2019-12-03 09:57:34.183533"], ["updated_at", "2019-12-03 09:57:34.183533"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Create (0.3ms)[0m  [1m[32mINSERT INTO "sounds" ("name", "description", "image_url", "sound_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Sound 5"], ["description", "Fireplace"], ["image_url", "https://images.unsplash.com/photo-1546182208-1e70985e2bf3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"], ["sound_url", "http://bbcsfx.acropolis.org.uk/assets/07059050.wav"], ["created_at", "2019-12-03 09:57:34.186127"], ["updated_at", "2019-12-03 09:57:34.186127"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "testuser1"], ["created_at", "2019-12-03 09:57:34.193344"], ["updated_at", "2019-12-03 09:57:34.193344"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "testuser2"], ["created_at", "2019-12-03 09:57:34.196249"], ["updated_at", "2019-12-03 09:57:34.196249"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "testuser3"], ["created_at", "2019-12-03 09:57:34.198904"], ["updated_at", "2019-12-03 09:57:34.198904"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mComposition Create (1.6ms)[0m  [1m[32mINSERT INTO "compositions" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Composition 1"], ["user_id", 3], ["created_at", "2019-12-03 09:57:34.229961"], ["updated_at", "2019-12-03 09:57:34.229961"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComposition Create (0.4ms)[0m  [1m[32mINSERT INTO "compositions" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Composition 2"], ["user_id", 1], ["created_at", "2019-12-03 09:57:34.236432"], ["updated_at", "2019-12-03 09:57:34.236432"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComposition Create (0.3ms)[0m  [1m[32mINSERT INTO "compositions" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Composition 3"], ["user_id", 2], ["created_at", "2019-12-03 09:57:34.241329"], ["updated_at", "2019-12-03 09:57:34.241329"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComposition Create (0.3ms)[0m  [1m[32mINSERT INTO "compositions" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Composition 4"], ["user_id", 1], ["created_at", "2019-12-03 09:57:34.245839"], ["updated_at", "2019-12-03 09:57:34.245839"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComposition Create (0.3ms)[0m  [1m[32mINSERT INTO "compositions" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Composition 5"], ["user_id", 2], ["created_at", "2019-12-03 09:57:34.251980"], ["updated_at", "2019-12-03 09:57:34.251980"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (1.4ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.2193915744412075], ["sound_id", 2], ["composition_id", 5], ["created_at", "2019-12-03 09:57:34.264980"], ["updated_at", "2019-12-03 09:57:34.264980"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.5ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.36078705612992934], ["sound_id", 3], ["composition_id", 2], ["created_at", "2019-12-03 09:57:34.273063"], ["updated_at", "2019-12-03 09:57:34.273063"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.4ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.17418908545073342], ["sound_id", 1], ["composition_id", 4], ["created_at", "2019-12-03 09:57:34.280024"], ["updated_at", "2019-12-03 09:57:34.280024"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.5ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.003142984655932324], ["sound_id", 3], ["composition_id", 4], ["created_at", "2019-12-03 09:57:34.286812"], ["updated_at", "2019-12-03 09:57:34.286812"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.4ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.29875070364348666], ["sound_id", 5], ["composition_id", 4], ["created_at", "2019-12-03 09:57:34.301783"], ["updated_at", "2019-12-03 09:57:34.301783"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.4ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.5373622514566472], ["sound_id", 5], ["composition_id", 3], ["created_at", "2019-12-03 09:57:34.308846"], ["updated_at", "2019-12-03 09:57:34.308846"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.3ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.1ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.1ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.3ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.7833601213794265], ["sound_id", 2], ["composition_id", 3], ["created_at", "2019-12-03 09:57:34.316173"], ["updated_at", "2019-12-03 09:57:34.316173"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.3ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.32316815951771016], ["sound_id", 3], ["composition_id", 2], ["created_at", "2019-12-03 09:57:34.323067"], ["updated_at", "2019-12-03 09:57:34.323067"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.1ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.1ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.3ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.41657031678396905], ["sound_id", 3], ["composition_id", 4], ["created_at", "2019-12-03 09:57:34.329848"], ["updated_at", "2019-12-03 09:57:34.329848"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.1ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.1ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.3ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.7206993540426808], ["sound_id", 5], ["composition_id", 5], ["created_at", "2019-12-03 09:57:34.335992"], ["updated_at", "2019-12-03 09:57:34.335992"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.1ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.1ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.3ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.29265492694063755], ["sound_id", 1], ["composition_id", 2], ["created_at", "2019-12-03 09:57:34.342060"], ["updated_at", "2019-12-03 09:57:34.342060"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.1ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.1ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.2ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.43207229857201634], ["sound_id", 2], ["composition_id", 1], ["created_at", "2019-12-03 09:57:34.347784"], ["updated_at", "2019-12-03 09:57:34.347784"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.1ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.1ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.1ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.3ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.6486545927620279], ["sound_id", 2], ["composition_id", 5], ["created_at", "2019-12-03 09:57:34.358564"], ["updated_at", "2019-12-03 09:57:34.358564"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.1ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.1ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.3ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.6964910682101711], ["sound_id", 2], ["composition_id", 3], ["created_at", "2019-12-03 09:57:34.364627"], ["updated_at", "2019-12-03 09:57:34.364627"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.1ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.1ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.3ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.00723874017253312], ["sound_id", 5], ["composition_id", 5], ["created_at", "2019-12-03 09:57:34.370681"], ["updated_at", "2019-12-03 09:57:34.370681"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.1ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.3ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.5653939843647429], ["sound_id", 2], ["composition_id", 1], ["created_at", "2019-12-03 09:57:34.377196"], ["updated_at", "2019-12-03 09:57:34.377196"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.1ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.1ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.3ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.9801732893800785], ["sound_id", 1], ["composition_id", 4], ["created_at", "2019-12-03 09:57:34.385866"], ["updated_at", "2019-12-03 09:57:34.385866"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.1ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.1ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.3ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.011644048600872758], ["sound_id", 2], ["composition_id", 2], ["created_at", "2019-12-03 09:57:34.392146"], ["updated_at", "2019-12-03 09:57:34.392146"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.1ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.1ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.3ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.10318878097153628], ["sound_id", 5], ["composition_id", 2], ["created_at", "2019-12-03 09:57:34.398343"], ["updated_at", "2019-12-03 09:57:34.398343"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.1ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.1ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.3ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.2697686036626661], ["sound_id", 4], ["composition_id", 3], ["created_at", "2019-12-03 09:57:34.404667"], ["updated_at", "2019-12-03 09:57:34.404667"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mSound Load (0.5ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" ORDER BY "sounds"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "sounds"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "compositions"[0m
+  [1m[36mCompositionSound Load (0.6ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "composition_sounds"[0m
+  [1m[36mSound Load (0.4ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mSound Load (0.5ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mCompositionSound Load (0.5ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.4ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.4ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCompositionSound Load (0.6ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds"[0m
+  [1m[36mComposition Load (0.4ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.4ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (2.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8539999017000812865)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateCompositionSounds (20191203091823)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.7ms)[0m  [1m[35mDROP TABLE "composition_sounds"[0m
+  [1m[36mprimary::SchemaMigration Destroy (0.4ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20191203091823"]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8539999017000812865)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8539999017000812865)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateSounds (20191203091449)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.8ms)[0m  [1m[35mDROP TABLE "sounds"[0m
+  [1m[36mprimary::SchemaMigration Destroy (0.4ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20191203091449"]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8539999017000812865)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8539999017000812865)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateCompositions (20191203091204)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.3ms)[0m  [1m[35mDROP TABLE "compositions"[0m
+  [1m[36mprimary::SchemaMigration Destroy (0.4ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20191203091204"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8539999017000812865)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8539999017000812865)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20191203091058)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.7ms)[0m  [1m[35mDROP TABLE "users"[0m
+  [1m[36mprimary::SchemaMigration Destroy (0.4ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20191203091058"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8539999017000812865)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8539999017000812865)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20191203091058)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191203091058"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCompositions (20191203091204)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "compositions" ("id" bigserial primary key, "name" character varying, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_c9e37bc030"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_compositions_on_user_id" ON "compositions"  ("user_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191203091204"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSounds (20191203091449)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "sounds" ("id" bigserial primary key, "name" character varying, "description" character varying, "image_url" character varying, "sound_url" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191203091449"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCompositionSounds (20191203091823)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "composition_sounds" ("id" bigserial primary key, "volume" float, "sound_id" bigint NOT NULL, "composition_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_b5f3aacaae"
+FOREIGN KEY ("sound_id")
+  REFERENCES "sounds" ("id")
+, CONSTRAINT "fk_rails_61fa4bd102"
+FOREIGN KEY ("composition_id")
+  REFERENCES "compositions" ("id")
+)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_composition_sounds_on_sound_id" ON "composition_sounds"  ("sound_id")[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_composition_sounds_on_composition_id" ON "composition_sounds"  ("composition_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191203091823"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8539999017000812865)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mSound Load (0.4ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.4ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[36mCompositionSound Load (0.5ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Create (0.6ms)[0m  [1m[32mINSERT INTO "sounds" ("name", "description", "image_url", "sound_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Sound 1"], ["description", "Weather: Rain, Thunder, claps and rolls at various distances"], ["image_url", "https://i.imgur.com/mVbmFQp.jpg"], ["sound_url", "http://bbcsfx.acropolis.org.uk/assets/07027060.wav"], ["created_at", "2019-12-03 11:03:15.973921"], ["updated_at", "2019-12-03 11:03:15.973921"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Create (0.3ms)[0m  [1m[32mINSERT INTO "sounds" ("name", "description", "image_url", "sound_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Sound 2"], ["description", "Birds: A country idyll, countryside atmosphere"], ["image_url", "https://www.rspb.org.uk/globalassets/images/birds-and-wildlife/bird-species-illustrations/redstart_male_1200x675.jpg?preset=largelandscape_desktop"], ["sound_url", "http://bbcsfx.acropolis.org.uk/assets/07074106.wav"], ["created_at", "2019-12-03 11:03:15.977608"], ["updated_at", "2019-12-03 11:03:15.977608"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Create (0.2ms)[0m  [1m[32mINSERT INTO "sounds" ("name", "description", "image_url", "sound_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Sound 3"], ["description", "Small river flowing"], ["image_url", "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ_abEBAKtpTJ7VhGw62GkIjYg53qfuOZMeU8S_VRPxGx6L-fHh"], ["sound_url", "http://bbcsfx.acropolis.org.uk/assets/07060074.wav"], ["created_at", "2019-12-03 11:03:15.980547"], ["updated_at", "2019-12-03 11:03:15.980547"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Create (0.2ms)[0m  [1m[32mINSERT INTO "sounds" ("name", "description", "image_url", "sound_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Sound 4"], ["description", "Crickets"], ["image_url", "https://scx1.b-cdn.net/csz/news/800/2018/whythesummer.jpg"], ["sound_url", "http://bbcsfx.acropolis.org.uk/assets/07043332.wav"], ["created_at", "2019-12-03 11:03:15.983228"], ["updated_at", "2019-12-03 11:03:15.983228"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Create (0.2ms)[0m  [1m[32mINSERT INTO "sounds" ("name", "description", "image_url", "sound_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Sound 5"], ["description", "Fireplace"], ["image_url", "https://images.unsplash.com/photo-1546182208-1e70985e2bf3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"], ["sound_url", "http://bbcsfx.acropolis.org.uk/assets/07059050.wav"], ["created_at", "2019-12-03 11:03:15.985933"], ["updated_at", "2019-12-03 11:03:15.985933"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "testuser1"], ["created_at", "2019-12-03 11:03:15.993236"], ["updated_at", "2019-12-03 11:03:15.993236"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "testuser2"], ["created_at", "2019-12-03 11:03:15.996369"], ["updated_at", "2019-12-03 11:03:15.996369"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "testuser3"], ["created_at", "2019-12-03 11:03:15.999239"], ["updated_at", "2019-12-03 11:03:15.999239"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComposition Create (0.8ms)[0m  [1m[32mINSERT INTO "compositions" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Composition 1"], ["user_id", 1], ["created_at", "2019-12-03 11:03:16.024347"], ["updated_at", "2019-12-03 11:03:16.024347"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComposition Create (0.3ms)[0m  [1m[32mINSERT INTO "compositions" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Composition 2"], ["user_id", 2], ["created_at", "2019-12-03 11:03:16.030018"], ["updated_at", "2019-12-03 11:03:16.030018"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mComposition Create (0.3ms)[0m  [1m[32mINSERT INTO "compositions" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Composition 3"], ["user_id", 3], ["created_at", "2019-12-03 11:03:16.035034"], ["updated_at", "2019-12-03 11:03:16.035034"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComposition Create (0.3ms)[0m  [1m[32mINSERT INTO "compositions" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Composition 4"], ["user_id", 2], ["created_at", "2019-12-03 11:03:16.039933"], ["updated_at", "2019-12-03 11:03:16.039933"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mComposition Create (0.3ms)[0m  [1m[32mINSERT INTO "compositions" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Composition 5"], ["user_id", 3], ["created_at", "2019-12-03 11:03:16.044563"], ["updated_at", "2019-12-03 11:03:16.044563"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.8ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.7587564772866146], ["sound_id", 1], ["composition_id", 1], ["created_at", "2019-12-03 11:03:16.057140"], ["updated_at", "2019-12-03 11:03:16.057140"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.4ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.9070478839131805], ["sound_id", 4], ["composition_id", 5], ["created_at", "2019-12-03 11:03:16.064469"], ["updated_at", "2019-12-03 11:03:16.064469"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.4ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.5647602698297565], ["sound_id", 5], ["composition_id", 5], ["created_at", "2019-12-03 11:03:16.071176"], ["updated_at", "2019-12-03 11:03:16.071176"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.4ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.3500362345344271], ["sound_id", 5], ["composition_id", 1], ["created_at", "2019-12-03 11:03:16.078013"], ["updated_at", "2019-12-03 11:03:16.078013"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.4ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.6732187197733697], ["sound_id", 3], ["composition_id", 4], ["created_at", "2019-12-03 11:03:16.092537"], ["updated_at", "2019-12-03 11:03:16.092537"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.4ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.25348493147350315], ["sound_id", 4], ["composition_id", 2], ["created_at", "2019-12-03 11:03:16.099299"], ["updated_at", "2019-12-03 11:03:16.099299"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.1ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.1ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.3ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.6599871801085497], ["sound_id", 4], ["composition_id", 2], ["created_at", "2019-12-03 11:03:16.105830"], ["updated_at", "2019-12-03 11:03:16.105830"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.1ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.1ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.3ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.6321502138822406], ["sound_id", 2], ["composition_id", 2], ["created_at", "2019-12-03 11:03:16.112057"], ["updated_at", "2019-12-03 11:03:16.112057"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.1ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.1ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.3ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.49409768591605907], ["sound_id", 2], ["composition_id", 5], ["created_at", "2019-12-03 11:03:16.118098"], ["updated_at", "2019-12-03 11:03:16.118098"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.1ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.1ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.2ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.9302231557026465], ["sound_id", 1], ["composition_id", 4], ["created_at", "2019-12-03 11:03:16.123481"], ["updated_at", "2019-12-03 11:03:16.123481"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.1ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.1ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.1ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.2ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.5466626526809606], ["sound_id", 4], ["composition_id", 3], ["created_at", "2019-12-03 11:03:16.128781"], ["updated_at", "2019-12-03 11:03:16.128781"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.1ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.1ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.2ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.35669824454567556], ["sound_id", 2], ["composition_id", 5], ["created_at", "2019-12-03 11:03:16.134169"], ["updated_at", "2019-12-03 11:03:16.134169"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.1ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.1ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.3ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.8398424623951768], ["sound_id", 4], ["composition_id", 3], ["created_at", "2019-12-03 11:03:16.144481"], ["updated_at", "2019-12-03 11:03:16.144481"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.1ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.3ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.7431504716295864], ["sound_id", 5], ["composition_id", 1], ["created_at", "2019-12-03 11:03:16.150172"], ["updated_at", "2019-12-03 11:03:16.150172"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.1ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.1ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.3ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.18918951397668937], ["sound_id", 5], ["composition_id", 5], ["created_at", "2019-12-03 11:03:16.155850"], ["updated_at", "2019-12-03 11:03:16.155850"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.1ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.1ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.2ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.2761695630999751], ["sound_id", 2], ["composition_id", 3], ["created_at", "2019-12-03 11:03:16.161187"], ["updated_at", "2019-12-03 11:03:16.161187"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.1ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.1ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.2ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.9371050601996272], ["sound_id", 3], ["composition_id", 5], ["created_at", "2019-12-03 11:03:16.166381"], ["updated_at", "2019-12-03 11:03:16.166381"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.1ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.1ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.3ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.5338011434676493], ["sound_id", 2], ["composition_id", 2], ["created_at", "2019-12-03 11:03:16.171829"], ["updated_at", "2019-12-03 11:03:16.171829"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.1ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.1ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.3ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.9522171986279107], ["sound_id", 5], ["composition_id", 1], ["created_at", "2019-12-03 11:03:16.177614"], ["updated_at", "2019-12-03 11:03:16.177614"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSound Load (0.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (0.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSound Load (0.1ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" WHERE "sounds"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComposition Load (0.1ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCompositionSound Create (0.3ms)[0m  [1m[32mINSERT INTO "composition_sounds" ("volume", "sound_id", "composition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["volume", 0.48359483789662927], ["sound_id", 1], ["composition_id", 5], ["created_at", "2019-12-03 11:03:16.183462"], ["updated_at", "2019-12-03 11:03:16.183462"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mComposition Load (0.7ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  [1m[36mSound Load (1.0ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1 LIMIT $2[0m  [["composition_id", 1], ["LIMIT", 11]]
