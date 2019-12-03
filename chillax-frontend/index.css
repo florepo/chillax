@@ -1,6 +1,10 @@
+body {
+	display: grid;
+	grid-template-columns: 2fr 8fr
+}
+
 #sound-container {
     margin: 2rem;
-    text-align: center;
 }
   
 .sound-card {
@@ -16,6 +20,6 @@
   
 .sound-img {
     justify-self: center;
-    height: 12rem;
-    width: auto;
+    height: auto;
+    width: 12rem;
 }

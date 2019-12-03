@@ -1,14 +1,14 @@
 // URLs
-const API_ENDPOINT = "http://localhost:3000/"
+const API_ENDPOINT = "http://localhost:3000"
 const URL_COMPOSITIONS = `${API_ENDPOINT}/compositions`
 const URL_SOUNDS = `${API_ENDPOINT}/sounds`
 
-// DOM elements
+// DOM ELEMENTS
 const soundContainer = document.querySelector("#sound-container")
 const soundList = document.querySelector("#sound-list")
+const compSoundContainer = document.querySelector("#composition-sound-container")
 
 // EVENT HANDLER
-
 const addHandler = (event, sound) => {
     console.log(event,sound)
 }
@@ -37,15 +37,16 @@ const getCompositions = () => {
 
 getSounds().then(data => renderSoundList(data))
 
-// render sound
+// RENDER SOUND LIST
 const renderSoundList = (soundArray) => {
     console.log(soundArray)
     return soundArray.forEach((sound) => {
         renderSoundElement(sound)
+        renderSoundCard(sound)
     })
 }
 
-//render sound element
+// RENDER SOUND ELEMENT
 const renderSoundElement = (sound) => {
     console.log(sound)
     const li = document.createElement("li")
@@ -53,9 +54,24 @@ const renderSoundElement = (sound) => {
 
     const addBtn = document.createElement("button")
     addBtn.innerText = "+"
-
     addBtn.addEventListener("click", () => addHandler(event, sound))
     
     li.append(addBtn)
     soundList.append(li)
+}
+
+// RENDER SOUND CARD
+const renderSoundCard = (sound) => {
+    const soundName = document.createElement("h2");
+    soundName.innerText = sound.name;
+
+    const soundImg = document.createElement("img");
+    soundImg.setAttribute("class", "sound-img");
+    soundImg.src = sound.image_url;
+
+    const soundDiv = document.createElement("div");
+    soundDiv.setAttribute("class", "sound-card");
+    soundDiv.append(soundName, soundImg)
+    
+    compSoundContainer.append(soundDiv);
 }
