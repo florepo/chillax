@@ -8,6 +8,13 @@ const soundContainer = document.querySelector("#sound-container")
 const soundList = document.querySelector("#sound-list")
 const compositionList = document.querySelector("#composition-list")
 const compSoundContainer = document.querySelector("#composition-sound-container")
+const compForm = document.querySelector(".form")
+
+
+// EVENT LISTENERS
+compForm.addEventListener("submit", (event) => {
+    submitHandler(event)
+})
 
 // EVENT HANDLER
 const addHandler = (event, sound) => {
@@ -24,6 +31,26 @@ const loadCompHandler = (event, composition) =>{
     console.log('load')
 }
 
+const submitHandler = (event) => {
+    event.preventDefault()
+    const name = compForm.querySelector("input[name=name]")
+    const soundCardNodes = compSoundContainer.childNodes
+    let soundCards = []
+
+    for(let i = 1; i < soundCardNodes.length; i++) {
+        soundCards[i] = soundCardNodes[i]
+        // console.log(soundCardNodes[i])
+    }
+
+    const data = []
+
+    soundCards.forEach((soundCard) => {
+        data << extractData(soundCard)
+    })
+    
+    createComposition(data)
+}
+
 
 // API
 const apiHeaders = {
@@ -37,6 +64,15 @@ const get = (url) => {
         //.then(json => console.log(json))
 }
 
+//DATA FUNCTIONS
+
+const extractData = (soundCard) => {
+    const volume = soundCard.querySelector("audio").volume
+    const id = parseInt(soundCard.id)
+    console.log({id: id, volume: volume})
+    return {id: id, volume: volume}
+}
+
 const getSounds = () => {
     let url = URL_SOUNDS
     return get(url)
@@ -47,6 +83,10 @@ const getCompositions = () => {
     return get(url)
 }
 
+const createComposition = (data) => {
+    console.log(data)
+}
+
 // SITE INITIALIZATION
 getSounds().then(data => renderSoundList(data))
 
@@ -54,7 +94,7 @@ getCompositions().then(data => renderCompositionList(data))
 
 // RENDER SOUNDS
 const renderSoundList = (soundArray) => {
-    console.log(soundArray)
+    // console.log(soundArray)
     return soundArray.forEach((sound) => {
         renderSoundElement(sound)
         renderSoundCard(sound)
@@ -87,6 +127,7 @@ const renderSoundCard = (sound) => {
 
     const soundDiv = document.createElement("div");
     soundDiv.setAttribute("class", "sound-card");
+    soundDiv.setAttribute("id", `${sound.id}`);
     soundDiv.append(soundName, soundDesc, soundImg, renderAudioPlayer(sound))
     compSoundContainer.append(soundDiv);
 }
@@ -101,7 +142,7 @@ const renderSoundCard = (sound) => {
 // }
 
 const renderCompositionList = (compositions) =>{
-    console.log(compositions)
+    // console.log(compositions)
         compositions.forEach(composition =>{
             renderComposition(composition)
         })
@@ -109,7 +150,7 @@ const renderCompositionList = (compositions) =>{
 }
 
 const renderComposition = (composition) => {
-    console.log(composition)
+    // console.log(composition)
     
     const li = document.createElement("li")
     li.innerText = composition.name
@@ -138,3 +179,4 @@ const renderAudioPlayer = (sound) => {
 
     return soundPlayer
 }
+
