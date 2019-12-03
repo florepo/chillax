@@ -64,14 +64,28 @@ const renderSoundElement = (sound) => {
 const renderSoundCard = (sound) => {
     const soundName = document.createElement("h2");
     soundName.innerText = sound.name;
+    
+    const soundDesc = document.createElement("p")
+    soundDesc.innerText = sound.description
 
     const soundImg = document.createElement("img");
     soundImg.setAttribute("class", "sound-img");
-    soundImg.src = sound.image_url;
+    soundImg.src = sound.image_url;  
 
     const soundDiv = document.createElement("div");
     soundDiv.setAttribute("class", "sound-card");
-    soundDiv.append(soundName, soundImg)
-    
+    soundDiv.append(soundName, soundDesc, soundImg, renderAudioPlayer(sound))
     compSoundContainer.append(soundDiv);
+}
+
+// RENDER AUDIO PLAYER
+const renderAudioPlayer = (sound) => {
+    const soundPlayer = document.createElement("audio")
+    soundPlayer.src = sound.sound_url
+    soundPlayer.className = "player"
+    soundPlayer.setAttribute("controls", "")
+    soundPlayer.setAttribute("controlsList", "nodownload")
+    soundPlayer.setAttribute("loop", "")
+
+    return soundPlayer
 }

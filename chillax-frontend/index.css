@@ -20,6 +20,11 @@ body {
   
 .sound-img {
     justify-self: center;
-    height: auto;
-    width: 12rem;
+    height: 10rem;
+    width: 10rem;
+}
+
+.player {
+    width: 15rem;
+    height: 5rem
 }
