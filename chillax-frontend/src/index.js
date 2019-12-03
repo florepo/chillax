@@ -32,7 +32,7 @@ const loadCompHandler = (event, composition) =>{
 
 const submitHandler = (event) => {
     event.preventDefault()
-    const name = compForm.querySelector("input[name=name]")
+    const name = compForm.querySelector("input[name=name]").value
     const soundCardNodes = compSoundContainer.childNodes
     let soundCards = []
 
@@ -43,9 +43,12 @@ const submitHandler = (event) => {
 
     const data = []
 
-    soundCards.forEach((soundCard) => {
-        data << extractData(soundCard)
+    soundCards.forEach((soundCard, index) => {
+        data[index] = extractData(soundCard)
     })
+
+    data.push(name)
+    // console.log(data)
     
     createComposition(data)
 }
