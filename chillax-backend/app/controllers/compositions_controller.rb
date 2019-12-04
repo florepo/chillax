@@ -1,12 +1,17 @@
 class CompositionsController < ApplicationController
+
     def index
         compositions = Composition.all
+<<<<<<< HEAD
         render json: compositions, include: [:sounds, :user, :composition_sounds]
+=======
+        render json: CompositionSerializer.new(compositions).to_serialized_json
+        #compositions, include: [:sounds, :user, :composition_sounds]
+>>>>>>> 88121c0a3133786c1ff6365329a27b2b94ff5630
     end
 
+ 
     def create
-      
-
       name = params[params.keys[-5]]
       user_id = params[params.keys[-4]]
 
@@ -21,10 +26,17 @@ class CompositionsController < ApplicationController
           volume = params[params.keys[index]]["volume"]
           CompositionSound.create(sound_id: sound_id, volume: volume, composition_id: composition.id)
           #byebug
+
        end
-      
+       render json: composition
+    end
 
-
-
+    def destroy
+        composition_sounds=CompositionSound.where(composition_id: params[:id])
+        composition_sounds.each do |cs|
+            cs.destroy
+        end
+        composition = Composition.find(params[:id])
+        composition.destroy
     end
 end

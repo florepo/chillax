@@ -3,57 +3,6 @@ const API_ENDPOINT = "http://localhost:3000"
 const URL_COMPOSITIONS = `${API_ENDPOINT}/compositions`
 const URL_SOUNDS = `${API_ENDPOINT}/sounds`
 
-// DOM ELEMENTS
-const soundContainer = document.querySelector("#sound-container")
-const soundList = document.querySelector("#sound-list")
-const compositionList = document.querySelector("#composition-list")
-const compSoundContainer = document.querySelector("#composition-sound-container")
-const compForm = document.querySelector(".form")
-
-
-// EVENT LISTENERS
-compForm.addEventListener("submit", (event) => {
-    submitHandler(event)
-})
-
-// EVENT HANDLER
-const addHandler = (event, sound) => {
-    renderSoundCard(sound)
-}
-
-const delCompHandler = (event, composition) => {
-    console.log('delete')
-    //renderSoundCard(sound)
-}
-
-const loadCompHandler = (event, composition) =>{
-    renderCompositionSounds(composition.sounds)
-}
-
-const submitHandler = (event) => {
-    event.preventDefault()
-    const name = compForm.querySelector("input[name=name]").value
-    const soundCardNodes = compSoundContainer.childNodes
-    let soundCards = []
-
-    for(let i = 1; i < soundCardNodes.length; i++) {
-        soundCards[i] = soundCardNodes[i]
-        // console.log(soundCardNodes[i])
-    }
-
-    const data = []
-
-    soundCards.forEach((soundCard, index) => {
-        data[index] = extractData(soundCard)
-    })
-
-    data.push(name)
-    // console.log(data)
-    
-    createComposition(data)
-}
-
-
 // API
 const apiHeaders = {
     "Content-Type": "application/json",
@@ -67,14 +16,14 @@ const get = (url) => {
 }
 
 const post = (url, data) => {
-    const confiObject = {
+    //debugger
+    const configObject =  {
         method: "POST",
         headers: apiHeaders,
         body: JSON.stringify(data)
-        }
-    return fetch(url, confiObject)
-        .then(response => response.json())
-        //.then(json => console.log(json))
+    }
+    return fetch(url, configObject)
+        //.then(response => response.json())
 }
 
 const patch = (instance_url, data) => {
@@ -85,7 +34,6 @@ const patch = (instance_url, data) => {
         }
     return fetch(instance_url,confiObject)
         .then(response => response.json())
-        //.then(json => console.log(json))
 }
 
 const destroy = (instance_url) => {
@@ -93,20 +41,60 @@ const destroy = (instance_url) => {
         method: "DELETE"
       }
     return fetch(instance_url, configObject)
-        .then(response => response.json())
-        //.then(json => console.log(json))
+        //.then(response => response.json()) ehy does this need to be commented out?
 }
 
+// DOM ELEMENTS
+const compSoundContainer = document.querySelector("#composition-sound-container")
+const soundContainer = document.querySelector("#sound-container")
+const compositionList = document.querySelector("#composition-list")
+const soundList = document.querySelector("#sound-list")
+const compForm = document.querySelector(".form")
+
+
+// EVENT LISTENERS
+compForm.addEventListener("submit", (event) => {
+    submitHandler(event)
+})
+
+// EVENT HANDLER
+const addHandler = (event, sound, volume) => {
+    renderSoundCard(sound, volume)
+}
+
+const delCompHandler = (event, composition) => {
+    deleteComposition(event, composition.id)
+}
+
+const submitHandler = (event) => {
+    event.preventDefault()
+    const name = compForm.querySelector("input[name=name]").value
+    const soundCardNodes = compSoundContainer.childNodes
+    let soundCards = []
+    const data = {}
+
+    for(let i = 1; i < soundCardNodes.length; i++) {
+        soundCards[i] = soundCardNodes[i]
+    }
+    soundCards.forEach((soundCard, index) => {
+        data[index] = extractData(soundCard)
+   
+    })
+    data[Object.keys(data).length+1] = name     //composition name
+    data[Object.keys(data).length+1] = 1        //user_id
+    console.log(data)
+    createComposition(data).then(response => response.json()).then(json => renderCompositionListElement(json))
+}
+
+const loadSoundCompositionHandler = (event, composition) =>{
+    console.log("load sounds for composition")
+    console.log(composition)
+    //debugger
+    //const sound_data = prepDataForRending(composition)
+    renderCompositionSounds(composition)
+}
 
 //DATA HANDLING
-//DATA FUNCTIONS
-
-const extractData = (soundCard) => {
-    const volume = soundCard.querySelector("audio").volume
-    const id = parseInt(soundCard.id)
-    console.log({id: id, volume: volume})
-    return {id: id, volume: volume}
-}
 
 const getSounds = () => {
     let url = URL_SOUNDS
@@ -118,32 +106,56 @@ const getCompositions = () => {
     return get(url)
 }
 
+const deleteComposition = (event, composition_id) => {
+    let instance_url = URL_COMPOSITIONS + `/${composition_id}`
+    return destroy(instance_url).then(event.target.parentElement.remove())
+}
+
+const extractData = (soundCard) => {
+    const volume = soundCard.querySelector("audio").volume
+    const id = parseInt(soundCard.id)
+    return {id: id, volume: volume}
+}
+
+const prepDataForRending = (composition) => {
+    // console.log("load function")
+    // composition.composition_sounds.map(cs=>{
+    //     cs.
+
+    // })
+}
+
 const createComposition = (data) => {
-    console.log(data)
+    let url = URL_COMPOSITIONS
+    return post(url, data)//.then(composition => renderCompositionElement(composition))
 }
 
 // SITE INITIALIZATION
 getSounds().then(data => renderSoundList(data))
 getCompositions().then(data => renderCompositionList(data))
 
+
 // RENDER SOUNDS
-const renderCompositionSounds = (soundArray) => {
+const renderCompositionSounds = (composition, volume) => {
+    //refresh
     while (compSoundContainer.firstChild) compSoundContainer.removeChild(compSoundContainer.firstChild);
-    return soundArray.forEach((sound) => {
-        renderSoundCard(sound)
+    //debugger
+    // needs to change here....
+
+    //
+    return composition.sounds.forEach((sound) => {
+        renderSoundCard(sound, volume)
     })
 }
 
 const renderSoundList = (soundArray) => {
-    // while (compSoundContainer.firstChild) compSoundContainer.removeChild(compSoundContainer.firstChild);
+    //debugger
     return soundArray.forEach((sound) => {
-        renderSoundElement(sound)
+        renderSoundListElement(sound)
     })
 }
 
-
-const renderSoundElement = (sound) => {
-    //console.log(sound)
+const renderSoundListElement = (sound) => {
     const li = document.createElement("li")
     li.innerText = sound.name
 
@@ -155,7 +167,8 @@ const renderSoundElement = (sound) => {
     soundList.append(li)
 }
 
-const renderSoundCard = (sound) => {
+const renderSoundCard = (sound, volume) => {
+    console.log("render Sound")
     const soundName = document.createElement("h2");
     soundName.innerText = sound.name;
     
@@ -169,36 +182,27 @@ const renderSoundCard = (sound) => {
     const soundDiv = document.createElement("div");
     soundDiv.setAttribute("class", "sound-card");
     soundDiv.setAttribute("id", `${sound.id}`);
-    soundDiv.append(soundName, soundDesc, soundImg, renderAudioPlayer(sound))
+    soundDiv.append(soundName, soundDesc, soundImg, renderAudioPlayer(sound, volume))
     compSoundContainer.append(soundDiv);
 }
 
 
-// renderCompositionSounds = (compositon) => {
-//     sounds = []
-//     sounds << composition.sounds
-//     return sounds.forEach(sound =>{
-//         renderSoundCard(sound)
-//     })
-// }
-
 const renderCompositionList = (compositions) =>{
-    // console.log(compositions)
         compositions.forEach(composition =>{
-            renderComposition(composition)
+            renderCompositionListElement(composition)
         })
-
 }
 
-const renderComposition = (composition) => {
+const renderCompositionListElement = (composition) => {
     // console.log(composition)
-    
     const li = document.createElement("li")
     li.innerText = composition.name
+    li.setAttribute("is",`comp-${composition.id}`)
+
 
     const loadBtn = document.createElement("button")
     loadBtn.innerText = "Load"
-    loadBtn.addEventListener("click", () => loadCompHandler(event, composition))
+    loadBtn.addEventListener("click", () => loadSoundCompositionHandler(event, composition))
     
     const delBtn = document.createElement("button")
     delBtn.innerText = "Delete"
@@ -210,13 +214,17 @@ const renderComposition = (composition) => {
 }
 
 // RENDER AUDIO PLAYER
-const renderAudioPlayer = (sound) => {
+
+const renderAudioPlayer = (sound, volume) => {
+
     const soundPlayer = document.createElement("audio")
     soundPlayer.src = sound.sound_url
+    //soundPlayer.volume = volume
     soundPlayer.className = "player"
     soundPlayer.setAttribute("controls", "")
     soundPlayer.setAttribute("controlsList", "nodownload")
     soundPlayer.setAttribute("loop", "")
+    soundPlayer.setAttribute("volume", `${volume}`)
 
     return soundPlayer
 }
