@@ -9,11 +9,26 @@ const soundList = document.querySelector("#sound-list")
 const compositionList = document.querySelector("#composition-list")
 const compSoundContainer = document.querySelector("#composition-sound-container")
 const compForm = document.querySelector(".form")
+const playCompBtn = document.querySelector("#playCompBtn")
+const pauseCompBtn = document.querySelector("#pauseCompBtn")
+const stopCompBtn = document.querySelector("#stopCompBtn")
 
 
 // EVENT LISTENERS
 compForm.addEventListener("submit", (event) => {
     submitHandler(event)
+})
+
+playCompBtn.addEventListener("click", () => {
+    playComposition()
+})
+
+pauseCompBtn.addEventListener("click", () => {
+    pauseComposition()
+})
+
+stopCompBtn.addEventListener("click", () => {
+    stopComposition()
 })
 
 // EVENT HANDLER
@@ -52,7 +67,6 @@ const submitHandler = (event) => {
     
     createComposition(data)
 }
-
 
 // API
 const apiHeaders = {
@@ -221,3 +235,28 @@ const renderAudioPlayer = (sound) => {
     return soundPlayer
 }
 
+// PLAY, PAUSE & STOP COMPOSITION
+const playComposition = () => {
+    const compSoundList = compSoundContainer.querySelectorAll("audio")
+    
+    return compSoundList.forEach((compSound) => {
+        compSound.play()
+    })
+}
+
+const pauseComposition = () => {
+    const compSoundList = compSoundContainer.querySelectorAll("audio")
+    
+    return compSoundList.forEach((compSound) => {
+        compSound.pause()
+    })
+}
+
+const stopComposition = () => {
+    const compSoundList = compSoundContainer.querySelectorAll("audio")
+    
+    return compSoundList.forEach((compSound) => {
+        compSound.pause()
+        compSound.currentTime = 0
+    })
+}
