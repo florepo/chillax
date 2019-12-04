@@ -14173,3 +14173,349 @@ Processing by CompositionsController#destroy as */*
 Completed 204 No Content in 13ms (ActiveRecord: 5.2ms | Allocations: 2779)
 
 
+Started GET "/sounds" for ::1 at 2019-12-04 17:39:34 +0000
+Started GET "/compositions" for ::1 at 2019-12-04 17:39:34 +0000
+Processing by CompositionsController#index as */*
+Processing by SoundsController#index as */*
+  [1m[36mSound Load (3.3ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (6.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  ↳ app/controllers/sounds_controller.rb:4:in `index'
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+Completed 200 OK in 14ms (Views: 6.1ms | ActiveRecord: 3.3ms | Allocations: 2019)
+
+
+  [1m[36mSound Load (24.6ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 1]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (0.6ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 1]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (5.5ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 2]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (0.4ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 2]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (0.4ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 3]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (21.5ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 3]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (0.8ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 4]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (0.3ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 4]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (0.5ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 5]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (1.8ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 5]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (0.5ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 11]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (1.0ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 11]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (0.8ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 12]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (0.5ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 12]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (2.0ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 13]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (0.4ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 13]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (0.7ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 14]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (1.6ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 14]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (4.3ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 15]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (0.6ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 15]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (0.8ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 16]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (0.6ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 16]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (1.5ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 17]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (0.5ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 17]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (0.9ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 18]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (0.4ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 18]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (2.9ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 19]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (0.4ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 19]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (6.7ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 20]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (0.4ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 20]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+Completed 200 OK in 361ms (Views: 0.2ms | ActiveRecord: 90.0ms | Allocations: 38064)
+
+
+Started GET "/sounds" for ::1 at 2019-12-04 17:39:52 +0000
+Started GET "/compositions" for ::1 at 2019-12-04 17:39:52 +0000
+Processing by SoundsController#index as */*
+Processing by CompositionsController#index as */*
+  [1m[36mSound Load (1.3ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  ↳ app/controllers/sounds_controller.rb:4:in `index'
+Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 1.3ms | Allocations: 1633)
+
+
+  [1m[36mComposition Load (27.5ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (0.9ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 1]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (25.2ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 1]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (12.0ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 2]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (1.8ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 2]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (0.4ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 3]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (0.9ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 3]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (0.4ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 4]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (0.4ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 4]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (0.9ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 5]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (2.6ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 5]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (1.1ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 11]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (4.9ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 11]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (0.7ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 12]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (2.6ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 12]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (2.5ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 13]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (0.9ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 13]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (0.5ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 14]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (1.1ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 14]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (2.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 15]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (0.9ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 15]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (1.4ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 16]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (0.9ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 16]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (3.8ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 17]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (1.0ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 17]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (3.1ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 18]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (1.4ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 18]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (2.8ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 19]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (0.4ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 19]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (0.6ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 20]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (0.5ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 20]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+Completed 200 OK in 330ms (Views: 0.1ms | ActiveRecord: 106.3ms | Allocations: 37772)
+
+
+Started GET "/sounds" for ::1 at 2019-12-04 17:40:28 +0000
+Started GET "/compositions" for ::1 at 2019-12-04 17:40:28 +0000
+Processing by SoundsController#index as */*
+Processing by CompositionsController#index as */*
+  [1m[36mComposition Load (7.0ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (31.6ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mSound Load (5.7ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 1]]
+  ↳ app/controllers/sounds_controller.rb:4:in `index'
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+Completed 200 OK in 38ms (Views: 5.8ms | ActiveRecord: 31.6ms | Allocations: 3589)
+
+
+  [1m[36mCompositionSound Load (16.6ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 1]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (3.1ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 2]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (17.8ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 2]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (18.1ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 3]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (17.0ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 3]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (16.4ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 4]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (38.3ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 4]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (2.3ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 5]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (0.4ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 5]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (0.8ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 11]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (0.5ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 11]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (0.5ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 12]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (4.5ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 12]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (0.5ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 13]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (2.4ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 13]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (1.0ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 14]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (0.6ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 14]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (0.9ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 15]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (1.2ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 15]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (27.9ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 16]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (3.5ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 16]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (2.5ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 17]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (1.0ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 17]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (0.5ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 18]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (11.8ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 18]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (1.6ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 19]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (0.3ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 19]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (0.3ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 20]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (0.3ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 20]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+Completed 200 OK in 407ms (Views: 0.1ms | ActiveRecord: 205.4ms | Allocations: 37777)
+
+
+Started GET "/compositions" for ::1 at 2019-12-04 17:40:46 +0000
+Started GET "/sounds" for ::1 at 2019-12-04 17:40:46 +0000
+Processing by CompositionsController#index as */*
+Processing by SoundsController#index as */*
+  [1m[36mComposition Load (3.6ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (14.4ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  ↳ app/controllers/sounds_controller.rb:4:in `index'
+Completed 200 OK in 20ms (Views: 5.5ms | ActiveRecord: 14.4ms | Allocations: 2568)
+
+
+  [1m[36mSound Load (37.0ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 1]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (7.3ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 1]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (27.6ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 2]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (0.3ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 2]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (0.4ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 3]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (0.4ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 3]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (0.4ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 4]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (0.4ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 4]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (1.5ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 5]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (0.5ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 5]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (2.7ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 11]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (0.6ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 11]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (4.0ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 12]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (0.6ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 12]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (0.4ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 13]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (0.6ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 13]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (24.4ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 14]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (1.7ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 14]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (0.5ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 15]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (8.2ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 15]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (0.6ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 16]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (1.2ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 16]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (0.7ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 17]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (0.5ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 17]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (2.0ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 18]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (5.7ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 18]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (7.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 19]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (18.1ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 19]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mSound Load (7.8ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 20]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+  [1m[36mCompositionSound Load (0.4ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 20]]
+  ↳ app/services/composition_serializer.rb:13:in `to_serialized_json'
+Completed 200 OK in 416ms (Views: 0.4ms | ActiveRecord: 167.2ms | Allocations: 37873)
+
+
+Started DELETE "/compositions/19" for ::1 at 2019-12-04 17:40:55 +0000
+Processing by CompositionsController#destroy as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mCompositionSound Load (0.9ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 19]]
+  ↳ app/controllers/compositions_controller.rb:32:in `destroy'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/compositions_controller.rb:33:in `block in destroy'
+  [1m[36mCompositionSound Destroy (2.2ms)[0m  [1m[31mDELETE FROM "composition_sounds" WHERE "composition_sounds"."id" = $1[0m  [["id", 49]]
+  ↳ app/controllers/compositions_controller.rb:33:in `block in destroy'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/compositions_controller.rb:33:in `block in destroy'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/compositions_controller.rb:33:in `block in destroy'
+  [1m[36mCompositionSound Destroy (1.1ms)[0m  [1m[31mDELETE FROM "composition_sounds" WHERE "composition_sounds"."id" = $1[0m  [["id", 50]]
+  ↳ app/controllers/compositions_controller.rb:33:in `block in destroy'
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/compositions_controller.rb:33:in `block in destroy'
+  [1m[36mComposition Load (0.4ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/compositions_controller.rb:35:in `destroy'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/compositions_controller.rb:36:in `destroy'
+  [1m[36mComposition Destroy (2.4ms)[0m  [1m[31mDELETE FROM "compositions" WHERE "compositions"."id" = $1[0m  [["id", 19]]
+  ↳ app/controllers/compositions_controller.rb:36:in `destroy'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/compositions_controller.rb:36:in `destroy'
+Completed 204 No Content in 29ms (ActiveRecord: 9.7ms | Allocations: 6087)
+
+
+Started DELETE "/compositions/20" for ::1 at 2019-12-04 17:40:56 +0000
+Processing by CompositionsController#destroy as */*
+  Parameters: {"id"=>"20"}
+  [1m[36mCompositionSound Load (0.4ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 20]]
+  ↳ app/controllers/compositions_controller.rb:32:in `destroy'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/compositions_controller.rb:33:in `block in destroy'
+  [1m[36mCompositionSound Destroy (0.6ms)[0m  [1m[31mDELETE FROM "composition_sounds" WHERE "composition_sounds"."id" = $1[0m  [["id", 51]]
+  ↳ app/controllers/compositions_controller.rb:33:in `block in destroy'
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/compositions_controller.rb:33:in `block in destroy'
+  [1m[36mComposition Load (0.3ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" WHERE "compositions"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/compositions_controller.rb:35:in `destroy'
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/compositions_controller.rb:36:in `destroy'
+  [1m[36mComposition Destroy (0.7ms)[0m  [1m[31mDELETE FROM "compositions" WHERE "compositions"."id" = $1[0m  [["id", 20]]
+  ↳ app/controllers/compositions_controller.rb:36:in `destroy'
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/compositions_controller.rb:36:in `destroy'
+Completed 204 No Content in 18ms (ActiveRecord: 6.1ms | Allocations: 4433)
+
+
