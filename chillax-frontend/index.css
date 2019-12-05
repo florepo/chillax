@@ -1,11 +1,16 @@
 .card {
     width: 12rem;
-    display: inline-grid
+    display: inline-grid;
 }
 
 .player {
     width: 12rem;
     height: 3rem
+} 
+
+.card-img-top {
+    width: 10rem;
+    height: 10rem;
 } 
 
 
