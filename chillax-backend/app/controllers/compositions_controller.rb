@@ -23,7 +23,8 @@ class CompositionsController < ApplicationController
           #byebug
 
        end
-       render json: composition
+       render json: composition, include: [:sounds, :user, :composition_sounds]
+  
     end
 
     def destroy
