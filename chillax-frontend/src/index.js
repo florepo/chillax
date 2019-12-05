@@ -214,7 +214,7 @@ const renderSoundCard = (sound) => {
     image.src = sound.image_url;  
 
     const button = document.createElement("button");
-    button.setAttribute("class", "remove");
+    button.setAttribute("class", "remove close");
     button.addEventListener("click", () => removeHandler(event, sound))
     button.innerText = "x"
    

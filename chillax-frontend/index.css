@@ -1,6 +1,15 @@
+/* SOUND CARD */
+
 .card {
     width: 20rem;
     display: inline-grid;
+    margin: 20px;
+}
+
+#composition-sound-container .card button {
+    color: red;
+    opacity: 1;
+    margin-bottom: 5px;
 }
 
 .img-container {
@@ -13,15 +22,14 @@
     margin: 0 auto;
     width: 10rem;
     height: 10rem;
-
-} 
+}
 
 .card-title {
     position: relative;
     text-align: center;
 }
 
-.card-img-top .remove {
+/* .card-img-top .remove {
     position: relative;
     top: -20px;
     right: 100%;
@@ -35,8 +43,7 @@
     border: none;
     cursor: pointer;
     border-radius: 5px;
-  }
-
+  } */
 
 .player {
     position: relative;
@@ -57,6 +64,24 @@
 
 #sound-container h4 {
     margin-top: 20px;
+}
+
+/* COMPOSITION MAKING AREA */
+
+#stopCompBtn {
+    margin-right: 10px;
+}
+
+#comp-player-btns {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+#composition-sound-container {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
 }
 
 /* COMPOSITION LIST STYLES */
@@ -101,10 +126,4 @@
 
 .footer-bs a:visited {
     color: white;
-}
-
-/* COMPOSITION PLAYER AREA */
-
-#stopCompBtn {
-    margin-right: 10px;
 }
