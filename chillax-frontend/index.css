@@ -38,15 +38,58 @@
   }
 
 
-  .player {
+.player {
     position: relative;
     width: 20rem;
     height: 3rem
-} 
-
-/* .sound-img {
-    justify-self: center;
-    height: 10rem;
-    width: 10rem;
 }
-*/
+
+/* SOUND LIST STYLES */
+
+#sound-list li {
+    margin: 10px;
+    padding: 10px;
+    background-color: rgb(191, 231, 245);
+    /* opacity: 0.7; */
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* COMPOSITION LIST STYLES */
+
+#composition-list li {
+    margin: 10px;
+    padding: 10px;
+    background-color: rgb(191, 231, 245);
+    /* opacity: 0.7; */
+    border-radius: 10px;
+    text-align: center;
+}
+
+#composition-list button.btn-primary {
+    margin-right: 5px;
+}
+#composition-list button.btn-danger {
+    margin-left: 5px;
+}
+
+/* FOOTER STYLES */
+
+.footer-bs {
+    background-color: #3c3d41;
+	padding: 20px;
+    color: rgba(255,255,255,1.00);
+    margin-top: 80px;
+}
+
+.footer-bs a {
+    color: white;
+}
+
+.footer-bs a:hover {
+    color: white;
+}
+
+.footer-bs a:visited {
+    color: white;
+}
