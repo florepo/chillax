@@ -2,12 +2,7 @@ class CompositionsController < ApplicationController
 
     def index
         compositions = Composition.all
-<<<<<<< HEAD
         render json: compositions, include: [:sounds, :user, :composition_sounds]
-=======
-        render json: CompositionSerializer.new(compositions).to_serialized_json
-        #compositions, include: [:sounds, :user, :composition_sounds]
->>>>>>> 88121c0a3133786c1ff6365329a27b2b94ff5630
     end
 
  

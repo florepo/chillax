@@ -3,6 +3,16 @@ const API_ENDPOINT = "http://localhost:3000"
 const URL_COMPOSITIONS = `${API_ENDPOINT}/compositions`
 const URL_SOUNDS = `${API_ENDPOINT}/sounds`
 
+// DOM ELEMENTS
+const soundContainer = document.querySelector("#sound-container")
+const soundList = document.querySelector("#sound-list")
+const compositionList = document.querySelector("#composition-list")
+const compSoundContainer = document.querySelector("#composition-sound-container")
+const compForm = document.querySelector(".form")
+const playCompBtn = document.querySelector("#playCompBtn")
+const pauseCompBtn = document.querySelector("#pauseCompBtn")
+const stopCompBtn = document.querySelector("#stopCompBtn")
+
 // API
 const apiHeaders = {
     "Content-Type": "application/json",
@@ -44,17 +54,21 @@ const destroy = (instance_url) => {
         //.then(response => response.json()) ehy does this need to be commented out?
 }
 
-// DOM ELEMENTS
-const compSoundContainer = document.querySelector("#composition-sound-container")
-const soundContainer = document.querySelector("#sound-container")
-const compositionList = document.querySelector("#composition-list")
-const soundList = document.querySelector("#sound-list")
-const compForm = document.querySelector(".form")
-
-
 // EVENT LISTENERS
 compForm.addEventListener("submit", (event) => {
     submitHandler(event)
+})
+
+playCompBtn.addEventListener("click", () => {
+    playComposition()
+})
+
+pauseCompBtn.addEventListener("click", () => {
+    pauseComposition()
+})
+
+stopCompBtn.addEventListener("click", () => {
+    stopComposition()
 })
 
 // EVENT HANDLER
@@ -64,6 +78,10 @@ const addHandler = (event, sound, volume) => {
 
 const delCompHandler = (event, composition) => {
     deleteComposition(event, composition.id)
+}
+
+const loadCompHandler = (event, composition) =>{
+    renderCompositionSounds(composition.sounds)
 }
 
 const submitHandler = (event) => {
@@ -229,3 +247,28 @@ const renderAudioPlayer = (sound, volume) => {
     return soundPlayer
 }
 
+// PLAY, PAUSE & STOP COMPOSITION
+const playComposition = () => {
+    const compSoundList = compSoundContainer.querySelectorAll("audio")
+    
+    return compSoundList.forEach((compSound) => {
+        compSound.play()
+    })
+}
+
+const pauseComposition = () => {
+    const compSoundList = compSoundContainer.querySelectorAll("audio")
+    
+    return compSoundList.forEach((compSound) => {
+        compSound.pause()
+    })
+}
+
+const stopComposition = () => {
+    const compSoundList = compSoundContainer.querySelectorAll("audio")
+    
+    return compSoundList.forEach((compSound) => {
+        compSound.pause()
+        compSound.currentTime = 0
+    })
+}

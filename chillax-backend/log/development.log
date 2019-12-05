@@ -14579,3 +14579,129 @@ Completed 200 OK in 52ms (Views: 1.5ms | ActiveRecord: 10.8ms | Allocations: 117
 
 
   [1m[36mComposition Load (0.6ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions" ORDER BY "compositions"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/sounds" for ::1 at 2019-12-05 09:05:21 +0000
+Started GET "/compositions" for ::1 at 2019-12-05 09:05:21 +0000
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SoundsController#index as */*
+  
+SyntaxError (/Users/tish/Development/code/chillax/chillax-backend/app/controllers/compositions_controller.rb:5: syntax error, unexpected <<, expecting end
+<<<<<<< HEAD
+^~
+/Users/tish/Development/code/chillax/chillax-backend/app/controllers/compositions_controller.rb:7: syntax error, unexpected ===, expecting end
+=======
+^~~
+/Users/tish/Development/code/chillax/chillax-backend/app/controllers/compositions_controller.rb:10: syntax error, unexpected >>, expecting end
+>>>>>>> 88121c0a3133786c1ff6365...
+^~):
+  
+app/controllers/compositions_controller.rb:5: syntax error, unexpected <<, expecting end
+app/controllers/compositions_controller.rb:7: syntax error, unexpected ===, expecting end
+app/controllers/compositions_controller.rb:10: syntax error, unexpected >>, expecting end
+app/controllers/compositions_controller.rb:5: syntax error, unexpected <<, expecting end
+app/controllers/compositions_controller.rb:7: syntax error, unexpected ===, expecting end
+app/controllers/compositions_controller.rb:10: syntax error, unexpected >>, expecting end
+  [1m[36mSound Load (1.0ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  ↳ app/controllers/sounds_controller.rb:4:in `index'
+Completed 200 OK in 63ms (Views: 48.8ms | ActiveRecord: 10.4ms | Allocations: 43687)
+
+
+Started GET "/compositions" for ::1 at 2019-12-05 09:06:04 +0000
+  
+SyntaxError (/Users/tish/Development/code/chillax/chillax-backend/app/controllers/compositions_controller.rb:5: syntax error, unexpected <<, expecting end
+<<<<<<< HEAD
+^~
+/Users/tish/Development/code/chillax/chillax-backend/app/controllers/compositions_controller.rb:7: syntax error, unexpected ===, expecting end
+=======
+^~~
+/Users/tish/Development/code/chillax/chillax-backend/app/controllers/compositions_controller.rb:10: syntax error, unexpected >>, expecting end
+>>>>>>> 88121c0a3133786c1ff6365...
+^~):
+  
+app/controllers/compositions_controller.rb:5: syntax error, unexpected <<, expecting end
+app/controllers/compositions_controller.rb:7: syntax error, unexpected ===, expecting end
+app/controllers/compositions_controller.rb:10: syntax error, unexpected >>, expecting end
+app/controllers/compositions_controller.rb:5: syntax error, unexpected <<, expecting end
+app/controllers/compositions_controller.rb:7: syntax error, unexpected ===, expecting end
+app/controllers/compositions_controller.rb:10: syntax error, unexpected >>, expecting end
+Started GET "/compositions" for ::1 at 2019-12-05 09:07:01 +0000
+Processing by CompositionsController#index as HTML
+  [1m[36mComposition Load (1.2ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  ↳ app/controllers/compositions_controller.rb:5:in `index'
+  [1m[36mSound Load (1.6ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 1]]
+  ↳ app/controllers/compositions_controller.rb:5:in `index'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/compositions_controller.rb:5:in `index'
+  [1m[36mCompositionSound Load (0.8ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 1]]
+  ↳ app/controllers/compositions_controller.rb:5:in `index'
+  [1m[36mSound Load (0.5ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 2]]
+  ↳ app/controllers/compositions_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/compositions_controller.rb:5:in `index'
+  [1m[36mCompositionSound Load (0.2ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 2]]
+  ↳ app/controllers/compositions_controller.rb:5:in `index'
+  [1m[36mSound Load (0.5ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 3]]
+  ↳ app/controllers/compositions_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/compositions_controller.rb:5:in `index'
+  [1m[36mCompositionSound Load (0.2ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 3]]
+  ↳ app/controllers/compositions_controller.rb:5:in `index'
+  [1m[36mSound Load (0.4ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 4]]
+  ↳ app/controllers/compositions_controller.rb:5:in `index'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/compositions_controller.rb:5:in `index'
+  [1m[36mCompositionSound Load (0.3ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 4]]
+  ↳ app/controllers/compositions_controller.rb:5:in `index'
+  [1m[36mSound Load (0.5ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 5]]
+  ↳ app/controllers/compositions_controller.rb:5:in `index'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/compositions_controller.rb:5:in `index'
+  [1m[36mCompositionSound Load (0.3ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 5]]
+  ↳ app/controllers/compositions_controller.rb:5:in `index'
+Completed 200 OK in 89ms (Views: 56.9ms | ActiveRecord: 27.8ms | Allocations: 43658)
+
+
+Started GET "/sounds" for ::1 at 2019-12-05 09:07:04 +0000
+Started GET "/compositions" for ::1 at 2019-12-05 09:07:04 +0000
+Processing by CompositionsController#index as */*
+Processing by SoundsController#index as */*
+  [1m[36mSound Load (0.6ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds"[0m
+  [1m[36mComposition Load (1.4ms)[0m  [1m[34mSELECT "compositions".* FROM "compositions"[0m
+  ↳ app/controllers/sounds_controller.rb:4:in `index'
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.6ms | Allocations: 2174)
+
+
+  ↳ app/controllers/compositions_controller.rb:5:in `index'
+  [1m[36mSound Load (1.2ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 1]]
+  ↳ app/controllers/compositions_controller.rb:5:in `index'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/compositions_controller.rb:5:in `index'
+  [1m[36mCompositionSound Load (0.2ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 1]]
+  ↳ app/controllers/compositions_controller.rb:5:in `index'
+  [1m[36mSound Load (0.5ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 2]]
+  ↳ app/controllers/compositions_controller.rb:5:in `index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/compositions_controller.rb:5:in `index'
+  [1m[36mCompositionSound Load (0.7ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 2]]
+  ↳ app/controllers/compositions_controller.rb:5:in `index'
+  [1m[36mSound Load (0.5ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 3]]
+  ↳ app/controllers/compositions_controller.rb:5:in `index'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/compositions_controller.rb:5:in `index'
+  [1m[36mCompositionSound Load (0.4ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 3]]
+  ↳ app/controllers/compositions_controller.rb:5:in `index'
+  [1m[36mSound Load (0.5ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 4]]
+  ↳ app/controllers/compositions_controller.rb:5:in `index'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/compositions_controller.rb:5:in `index'
+  [1m[36mCompositionSound Load (0.3ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 4]]
+  ↳ app/controllers/compositions_controller.rb:5:in `index'
+  [1m[36mSound Load (0.6ms)[0m  [1m[34mSELECT "sounds".* FROM "sounds" INNER JOIN "composition_sounds" ON "sounds"."id" = "composition_sounds"."sound_id" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 5]]
+  ↳ app/controllers/compositions_controller.rb:5:in `index'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/compositions_controller.rb:5:in `index'
+  [1m[36mCompositionSound Load (0.5ms)[0m  [1m[34mSELECT "composition_sounds".* FROM "composition_sounds" WHERE "composition_sounds"."composition_id" = $1[0m  [["composition_id", 5]]
+  ↳ app/controllers/compositions_controller.rb:5:in `index'
+Completed 200 OK in 49ms (Views: 40.4ms | ActiveRecord: 8.7ms | Allocations: 23543)
+
+
