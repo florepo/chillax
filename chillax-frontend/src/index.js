@@ -255,7 +255,10 @@ const renderSoundListElement = (sound) => {
 
     const addBtn = document.createElement("button")
     addBtn.setAttribute("class", "btn btn-primary")
-    addBtn.innerText = "+"
+    
+    const i = document.createElement("i")
+    i.setAttribute("class", "fas fa-plus")
+    addBtn.append(i)
     addBtn.addEventListener("click", () => addHandler(event, sound))
 
     const emptyP = document.createElement("p")
