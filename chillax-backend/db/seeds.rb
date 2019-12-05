@@ -7,15 +7,15 @@ CompositionSound.destroy_all
 puts "Pre-existing data cleared"
 
 # Sounds
-Sound.create(name: "Sound 1", description: "Weather: Rain, Thunder, claps and rolls at various distances", sound_url: "http://bbcsfx.acropolis.org.uk/assets/07027060.wav", image_url: "https://i.imgur.com/mVbmFQp.jpg")
+Sound.create(name: "Sound 1", description: "Weather: Rain, Thunder, claps and rolls at various distances", sound_url: "http://bbcsfx.acropolis.org.uk/assets/07027060.wav", image_url: "https://image.flaticon.com/icons/svg/414/414974.svg")
 
-Sound.create(name: "Sound 2", description: "Birds: A country idyll, countryside atmosphere", sound_url: "http://bbcsfx.acropolis.org.uk/assets/07074106.wav", image_url: "https://www.rspb.org.uk/globalassets/images/birds-and-wildlife/bird-species-illustrations/redstart_male_1200x675.jpg?preset=largelandscape_desktop")
+Sound.create(name: "Sound 2", description: "Birds: A country idyll, countryside atmosphere", sound_url: "http://bbcsfx.acropolis.org.uk/assets/07074106.wav", image_url: "https://image.flaticon.com/icons/svg/141/141762.svg")
 
-Sound.create(name: "Sound 3", description: "Small river flowing", sound_url: "http://bbcsfx.acropolis.org.uk/assets/07060074.wav", image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ_abEBAKtpTJ7VhGw62GkIjYg53qfuOZMeU8S_VRPxGx6L-fHh")
+Sound.create(name: "Sound 3", description: "Small river flowing", sound_url: "http://bbcsfx.acropolis.org.uk/assets/07060074.wav", image_url: "https://image.flaticon.com/icons/svg/1400/1400342.svg")
 
-Sound.create(name: "Sound 4", description: "Crickets", sound_url: "http://bbcsfx.acropolis.org.uk/assets/07043332.wav", image_url: "https://scx1.b-cdn.net/csz/news/800/2018/whythesummer.jpg")
+Sound.create(name: "Sound 4", description: "Crickets", sound_url: "http://bbcsfx.acropolis.org.uk/assets/07043332.wav", image_url: "https://image.flaticon.com/icons/svg/616/616564.svg")
 
-Sound.create(name: "Sound 5", description: "Fireplace", sound_url: "http://bbcsfx.acropolis.org.uk/assets/07059050.wav", image_url: "https://images.unsplash.com/photo-1546182208-1e70985e2bf3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60")
+Sound.create(name: "Sound 5", description: "Fireplace", sound_url: "http://bbcsfx.acropolis.org.uk/assets/07059050.wav", image_url: "https://image.flaticon.com/icons/svg/1365/1365093.svg")
 
 puts "Sample sound snippets created"
 
