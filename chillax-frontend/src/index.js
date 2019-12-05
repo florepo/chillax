@@ -12,6 +12,7 @@ const compForm = document.querySelector(".form")
 const playCompBtn = document.querySelector("#playCompBtn")
 const pauseCompBtn = document.querySelector("#pauseCompBtn")
 const stopCompBtn = document.querySelector("#stopCompBtn")
+const currentCompName = document.querySelector("#current-comp-name")
 
 // API
 const apiHeaders = {
@@ -80,9 +81,9 @@ const delCompHandler = (event, composition) => {
     deleteComposition(event, composition.id)
 }
 
-const loadCompHandler = (event, composition) =>{
-    renderCompositionSounds(composition.sounds)
-}
+// const loadCompHandler = (event, composition) =>{
+//     renderCompositionSounds(composition.sounds)
+// }
 
 const submitHandler = (event) => {
     event.preventDefault()
@@ -102,6 +103,7 @@ const submitHandler = (event) => {
     data[Object.keys(data).length+1] = 1        //user_id
     console.log(data)
     createComposition(data).then(response => response.json()).then(json => renderCompositionListElement(json))
+        .then(currentCompName.innerText = name)
 }
 
 const loadSoundCompositionHandler = (event, composition) =>{
@@ -110,6 +112,7 @@ const loadSoundCompositionHandler = (event, composition) =>{
     //debugger
     //const sound_data = prepDataForRending(composition)
     renderCompositionSounds(composition)
+    currentCompName.innerText = composition.name
 }
 
 //DATA HANDLING
@@ -175,13 +178,16 @@ const renderSoundList = (soundArray) => {
 
 const renderSoundListElement = (sound) => {
     const li = document.createElement("li")
-    li.innerText = sound.name
+    const p = document.createElement("p")
+    p.innerText = sound.name
 
     const addBtn = document.createElement("button")
     addBtn.innerText = "+"
     addBtn.addEventListener("click", () => addHandler(event, sound))
+
+    const emptyP = document.createElement("p")
     
-    li.append(addBtn)
+    li.append(p, addBtn, emptyP)
     soundList.append(li)
 }
 
@@ -214,9 +220,10 @@ const renderCompositionList = (compositions) =>{
 const renderCompositionListElement = (composition) => {
     // console.log(composition)
     const li = document.createElement("li")
-    li.innerText = composition.name
     li.setAttribute("is",`comp-${composition.id}`)
 
+    const p = document.createElement("p")
+    p.innerText = composition.name
 
     const loadBtn = document.createElement("button")
     loadBtn.innerText = "Load"
@@ -226,8 +233,9 @@ const renderCompositionListElement = (composition) => {
     delBtn.innerText = "Delete"
     delBtn.addEventListener("click", () => delCompHandler(event, composition))
 
+    const emptyP = document.createElement("p")
 
-    li.append(loadBtn,delBtn)
+    li.append(p, loadBtn, delBtn, emptyP)
     compositionList.append(li)
 }
 

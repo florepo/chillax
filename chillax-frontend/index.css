@@ -1,11 +1,11 @@
-body {
+/* body {
 	display: grid;
 	grid-template-columns: 2fr 8fr
-}
+} */
 
-#sound-container {
+/* #sound-container {
     margin: 2rem;
-}
+} */
   
 .sound-card {
     text-align: center;

@@ -4,32 +4,58 @@
     <meta charset="utf-8">
     <title>Chillax</title>
     <script type="text/javascript" src="src/index.js" defer></script>
-    <link rel="stylesheet" href="index.css">
+    <!-- <link rel="stylesheet" href="index.css"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <div class="form-container">
-        <form class="form" style="">
-            <h3>Create a composition!</h3>
-            <input type="text" name="name" value="" placeholder="Enter composition's name..." class="input-text">
-            <br>
-            <input type="submit" name="submit" value="Create New Composition" class="submit">
-        </form>
+    <div class="jumbotron text-center">
+        <h1>Chillax</h1>
+        <p>Compose your soundscape</p> 
     </div>
-
-    <div id="sound-container">
-        <ul id="sound-list">
-        </ul>
-        <div id="comp-player-btns">
-            <button id="playCompBtn">Play Composition</button>
-            <button id="pauseCompBtn">Pause Composition</button>
-            <button id="stopCompBtn">Stop Composition</button>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3" id="sound-container">
+                    <ul id="sound-list">
+                    </ul>
+            </div>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div>
+                        <div id="comp-player-btns">
+                            <button id="playCompBtn">Play</button>
+                            <button id="pauseCompBtn">Pause</button>
+                            <button id="stopCompBtn">Stop</button>
+                            <label id="current-comp-name">My Soundscape</label>
+                        </div>
+                    </div>
+                    <div id="composition-sound-container">
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="form-container">
+                        <form class="form">
+                            <!-- <h3>Create a composition!</h3> -->
+                            <label>Save as new:</label>
+                            <input type="text" name="name" value="" placeholder="Enter name..." class="input-text">
+                    
+                            <input type="submit" name="submit" value="Save Soundscape" class="submit">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3" id="sound-container">
+                <div id="composition-container">
+                    <ul id="composition-list">
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
-    <div id="composition-sound-container">
-    </div>
-    <div id="composition-container">
-      <ul id="composition-list">
-      </ul>
-  </div>
+    
+    
   </body>
 </html>
