@@ -1,5 +1,5 @@
 .card {
-    width: 12rem;
+    width: 20rem;
     display: inline-grid;
 }
 
@@ -10,9 +10,16 @@
 
 .card-img-top {
     position: relative;
+    margin: 0 auto;
     width: 10rem;
     height: 10rem;
+
 } 
+
+.card-title {
+    position: relative;
+    text-align: center;
+}
 
 .card-img-top .remove {
     position: relative;
@@ -20,8 +27,9 @@
     right: 100%;
     width: 2rem;
     height: 2rem;
+    color: green;
+    
     background-color: #555;
-    color: white;
     font-size: 12px;
     padding: 2px 2px;
     border: none;
@@ -32,7 +40,7 @@
 
   .player {
     position: relative;
-    width: 12rem;
+    width: 20rem;
     height: 3rem
 } 
 

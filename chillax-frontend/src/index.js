@@ -105,7 +105,7 @@ const submitHandler = (event) => {
     })
     data[Object.keys(data).length+1] = name     //composition name
     data[Object.keys(data).length+1] = 1        //user_id
-    console.log(data)
+
     createComposition(data).then(response => response.json()).then(json => renderCompositionListElement(json))
         .then(currentCompName.innerText = name)
 }
@@ -141,11 +141,22 @@ const clearComposition = () => {
 }
 
 const loadSoundCompositionHandler = (event, composition) =>{
-    console.log("load sounds for composition")
-    console.log(composition)
-    renderCompositionSounds(composition)
+    let soundsArray = []
+    composition.composition_sounds.forEach(cs =>{
+        let id = cs["sound_id"]
+        let result  = null
+        let sounds = composition.sounds.filter(obj => {return obj.id === id})
+        sounds = Array.from(sounds)
+        console.log(sounds)
+        result = sounds[0]
+        result["volume"]=cs.volume
+        soundsArray.push(result)
+    }) 
+    renderCompositionSounds(soundsArray)
     currentCompName.innerText = composition.name
 }
+
+
 
 //DATA HANDLING
 
@@ -170,13 +181,6 @@ const extractData = (soundCard) => {
     return {id: id, volume: volume}
 }
 
-const prepDataForRending = (composition) => {
-    // console.log("load function")
-    // composition.composition_sounds.map(cs=>{
-    //     cs.
-
-    // })
-}
 
 const createComposition = (data) => {
     let url = URL_COMPOSITIONS
@@ -189,15 +193,14 @@ getCompositions().then(data => renderCompositionList(data))
 
 
 // RENDER SOUNDS
-const renderCompositionSounds = (composition, volume) => {
+const renderCompositionSounds = (sounds) => {
     while (compSoundContainer.firstChild) compSoundContainer.removeChild(compSoundContainer.firstChild);
-    return composition.sounds.forEach((sound) => {
-        renderSoundCard(sound, volume)
+    return sounds.forEach((sound) => {
+        renderSoundCard(sound)
     })
 }
 
-const renderSoundCard = (sound, volume) => {
-
+const renderSoundCard = (sound) => {
     const card = document.createElement("div");
     card.setAttribute("class", "card");
     card.setAttribute("id", `${sound.id}`);
@@ -228,7 +231,7 @@ const renderSoundCard = (sound, volume) => {
     p.setAttribute("class", "card-text");
     p.innerText = sound.description
 
-    const player = renderAudioPlayer(sound, volume)
+    const player = renderAudioPlayer(sound)
     
     card.append(button)
     card.append(image)
@@ -267,7 +270,6 @@ const renderCompositionList = (compositions) =>{
 }
 
 const renderCompositionListElement = (composition) => {
-    // console.log(composition)
     const li = document.createElement("li")
     li.setAttribute("is",`comp-${composition.id}`)
 
@@ -290,7 +292,10 @@ const renderCompositionListElement = (composition) => {
 
 // RENDER AUDIO PLAYER
 
-const renderAudioPlayer = (sound, volume) => {
+const renderAudioPlayer = (sound) => {
+    console.log(sound)
+    console.log(sound.volume)
+    
 
     const soundPlayer = document.createElement("audio")
     soundPlayer.src = sound.sound_url
@@ -299,7 +304,15 @@ const renderAudioPlayer = (sound, volume) => {
     soundPlayer.setAttribute("controls", "")
     soundPlayer.setAttribute("controlsList", "nodownload")
     soundPlayer.setAttribute("loop", "")
-    soundPlayer.setAttribute("volume", `${volume}`)
+    if(sound.volume==undefined) {
+        soundPlayer.volume = 1
+    } else {
+    soundPlayer.volume = sound.volume
+    }
+
+    soundPlayer.setAttribute("border-radius", "2px");
+
+    const player = new Plyr('#player');
 
     return soundPlayer
 }
