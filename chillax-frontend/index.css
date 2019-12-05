@@ -11,7 +11,36 @@
 .card-img-top {
     width: 10rem;
     height: 10rem;
-} 
+}
+
+/* SOUND LIST STYLES */
+
+#sound-list li {
+    margin: 10px;
+    padding: 10px;
+    background-color: rgb(191, 231, 245);
+    /* opacity: 0.7; */
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* COMPOSITION LIST STYLES */
+
+#composition-list li {
+    margin: 10px;
+    padding: 10px;
+    background-color: rgb(191, 231, 245);
+    /* opacity: 0.7; */
+    border-radius: 10px;
+    text-align: center;
+}
+
+#composition-list button.btn-primary {
+    margin-right: 5px;
+}
+#composition-list button.btn-danger {
+    margin-left: 5px;
+}
 
 /* FOOTER STYLES */
 
