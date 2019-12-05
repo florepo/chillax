@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Chillax</title>
+    <title>chillax</title>
 
     <script type="text/javascript" src="src/index.js" defer></script>
 
@@ -14,19 +14,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="https://cdn.plyr.io/3.5.6/plyr.polyfilled.js"></script>
-
-    <!-- JQuery for tooltips -->
-    <script>
-        $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();   
-        });
-    </script>
+    
+    <!-- Font Awesome-->
+    <script src="https://kit.fontawesome.com/85fef6a22e.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <!-- Banner -->
 
     <div class="jumbotron text-center">
-        <h1>Chillax</h1>
+        <h1>chillax</h1>
         <p>Soundscape Composer</p> 
     </div>
     
@@ -43,11 +39,11 @@
                 <div class="row">
                     <div>
                         <div id="comp-player-btns">
-                            <button id="playCompBtn">Play</button>
-                            <button id="pauseCompBtn">Pause</button>
-                            <button id="stopCompBtn">Stop</button>
-                            <button id="clearAllBtn">Clear All</button>
-                            <label id="current-comp-name">My Soundscape</label>
+                            <h3 id="current-comp-name" class="text-uppercase align-top">My Soundscape</h3>
+                            <button id="playCompBtn" class="btn btn-primary"><i class="fa fa-play"></i></button>
+                            <button id="pauseCompBtn" class="btn btn-primary"><i class="fa fa-pause"></i></button>
+                            <button id="stopCompBtn" class="btn btn-primary"><i class="fa fa-stop"></i></button>
+                            <button id="clearAllBtn" class="btn btn-warning">Clear All</button>
                         </div>
                     </div>
                     <div id="composition-sound-container">

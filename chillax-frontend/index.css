@@ -55,6 +55,10 @@
     text-align: center;
 }
 
+#sound-container h4 {
+    margin-top: 20px;
+}
+
 /* COMPOSITION LIST STYLES */
 
 #composition-list li {
@@ -69,8 +73,13 @@
 #composition-list button.btn-primary {
     margin-right: 5px;
 }
+
 #composition-list button.btn-danger {
     margin-left: 5px;
+}
+
+#composition-sound-container h4 {
+    margin-top: 20px;
 }
 
 /* FOOTER STYLES */
@@ -92,4 +101,10 @@
 
 .footer-bs a:visited {
     color: white;
+}
+
+/* COMPOSITION PLAYER AREA */
+
+#stopCompBtn {
+    margin-right: 10px;
 }
