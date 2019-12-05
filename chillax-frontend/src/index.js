@@ -12,6 +12,7 @@ const compForm = document.querySelector(".form")
 const playCompBtn = document.querySelector("#playCompBtn")
 const pauseCompBtn = document.querySelector("#pauseCompBtn")
 const stopCompBtn = document.querySelector("#stopCompBtn")
+const clearAllBtn = document.querySelector("#clearAllBtn")
 const currentCompName = document.querySelector("#current-comp-name")
 
 // API
@@ -72,6 +73,10 @@ stopCompBtn.addEventListener("click", () => {
     stopComposition()
 })
 
+clearAllBtn.addEventListener("click", () => {
+    clearComposition()
+})
+
 // EVENT HANDLER
 const addHandler = (event, sound, volume) => {
     renderSoundCard(sound, volume)
@@ -80,10 +85,6 @@ const addHandler = (event, sound, volume) => {
 const delCompHandler = (event, composition) => {
     deleteComposition(event, composition.id)
 }
-
-// const loadCompHandler = (event, composition) =>{
-//     renderCompositionSounds(composition.sounds)
-// }
 
 const submitHandler = (event) => {
     event.preventDefault()
@@ -106,11 +107,39 @@ const submitHandler = (event) => {
         .then(currentCompName.innerText = name)
 }
 
+const playComposition = () => {
+    const compSoundList = compSoundContainer.querySelectorAll("audio")
+    
+    return compSoundList.forEach((compSound) => {
+        compSound.play()
+    })
+}
+
+const pauseComposition = () => {
+    const compSoundList = compSoundContainer.querySelectorAll("audio")
+    
+    return compSoundList.forEach((compSound) => {
+        compSound.pause()
+    })
+}
+
+const stopComposition = () => {
+    const compSoundList = compSoundContainer.querySelectorAll("audio")
+    
+    return compSoundList.forEach((compSound) => {
+        compSound.pause()
+        compSound.currentTime = 0
+    })
+}
+
+const clearComposition = () => {
+    console.log("clicked")
+    while (compSoundContainer.firstChild) compSoundContainer.removeChild(compSoundContainer.firstChild);
+}
+
 const loadSoundCompositionHandler = (event, composition) =>{
     console.log("load sounds for composition")
     console.log(composition)
-    //debugger
-    //const sound_data = prepDataForRending(composition)
     renderCompositionSounds(composition)
     currentCompName.innerText = composition.name
 }
@@ -158,15 +187,41 @@ getCompositions().then(data => renderCompositionList(data))
 
 // RENDER SOUNDS
 const renderCompositionSounds = (composition, volume) => {
-    //refresh
     while (compSoundContainer.firstChild) compSoundContainer.removeChild(compSoundContainer.firstChild);
-    //debugger
-    // needs to change here....
-
-    //
     return composition.sounds.forEach((sound) => {
         renderSoundCard(sound, volume)
     })
+}
+
+const renderSoundCard = (sound, volume) => {
+
+    const card = document.createElement("div");
+    card.setAttribute("class", "card");
+    card.setAttribute("id", `${sound.id}`);
+
+    const image = document.createElement("img");
+    image.setAttribute("class", "card-img-top");
+    image.setAttribute("alt", "Sound Image");
+    image.src = sound.image_url;  
+
+    const body = document.createElement("div");
+    body.setAttribute("class", "card-body");
+    body.setAttribute("id", `${sound.id}`);
+
+    const title = document.createElement("h5");
+    title.setAttribute("class", "card-title");
+    title.innerText = sound.name;
+
+    const p = document.createElement("p");
+    p.setAttribute("class", "card-text");
+    p.innerText = sound.description
+
+    const player = renderAudioPlayer(sound, volume)
+    
+    body.append(title, player);
+    card.append(image, body);
+    compSoundContainer.append(card);
+
 }
 
 const renderSoundList = (soundArray) => {
@@ -191,24 +246,7 @@ const renderSoundListElement = (sound) => {
     soundList.append(li)
 }
 
-const renderSoundCard = (sound, volume) => {
-    console.log("render Sound")
-    const soundName = document.createElement("h2");
-    soundName.innerText = sound.name;
-    
-    const soundDesc = document.createElement("p")
-    soundDesc.innerText = sound.description
 
-    const soundImg = document.createElement("img");
-    soundImg.setAttribute("class", "sound-img");
-    soundImg.src = sound.image_url;  
-
-    const soundDiv = document.createElement("div");
-    soundDiv.setAttribute("class", "sound-card");
-    soundDiv.setAttribute("id", `${sound.id}`);
-    soundDiv.append(soundName, soundDesc, soundImg, renderAudioPlayer(sound, volume))
-    compSoundContainer.append(soundDiv);
-}
 
 
 const renderCompositionList = (compositions) =>{
@@ -255,28 +293,3 @@ const renderAudioPlayer = (sound, volume) => {
     return soundPlayer
 }
 
-// PLAY, PAUSE & STOP COMPOSITION
-const playComposition = () => {
-    const compSoundList = compSoundContainer.querySelectorAll("audio")
-    
-    return compSoundList.forEach((compSound) => {
-        compSound.play()
-    })
-}
-
-const pauseComposition = () => {
-    const compSoundList = compSoundContainer.querySelectorAll("audio")
-    
-    return compSoundList.forEach((compSound) => {
-        compSound.pause()
-    })
-}
-
-const stopComposition = () => {
-    const compSoundList = compSoundContainer.querySelectorAll("audio")
-    
-    return compSoundList.forEach((compSound) => {
-        compSound.pause()
-        compSound.currentTime = 0
-    })
-}

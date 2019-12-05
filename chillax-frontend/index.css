@@ -1,30 +1,17 @@
-/* body {
-	display: grid;
-	grid-template-columns: 2fr 8fr
-} */
+.card {
+    width: 12rem;
+    display: inline-grid
+}
 
-/* #sound-container {
-    margin: 2rem;
-} */
-  
-/* .sound-card {
-    text-align: center;
-    border: grey solid 1px;
-    padding: 1rem;
-    width: 15rem;
-    height: 25rem;
-    display: inline-grid;
-    margin: 1rem 2rem;
-    box-shadow: 3px 4px #e04b52
-} */
-  
-.sound-img {
+.player {
+    width: 12rem;
+    height: 3rem
+} 
+
+
+/* .sound-img {
     justify-self: center;
     height: 10rem;
     width: 10rem;
 }
-
-.player {
-    width: 15rem;
-    height: 5rem
-}
+*/
