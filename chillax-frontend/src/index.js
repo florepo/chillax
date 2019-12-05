@@ -85,6 +85,9 @@ const addHandler = (event, sound, volume) => {
 const delCompHandler = (event, composition) => {
     deleteComposition(event, composition.id)
 }
+const removeHandler = (event, composition) => {
+    event.target.parentNode.remove()
+}
 
 const submitHandler = (event) => {
     event.preventDefault()
@@ -199,10 +202,19 @@ const renderSoundCard = (sound, volume) => {
     card.setAttribute("class", "card");
     card.setAttribute("id", `${sound.id}`);
 
+    const imageContainer = document.createElement("div");
+    imageContainer.setAttribute("class", "img-container");
+
     const image = document.createElement("img");
     image.setAttribute("class", "card-img-top");
     image.setAttribute("alt", "Sound Image");
     image.src = sound.image_url;  
+
+    const button = document.createElement("button");
+    button.setAttribute("class", "remove");
+    button.addEventListener("click", () => removeHandler(event, sound))
+    button.innerText = "x"
+   
 
     const body = document.createElement("div");
     body.setAttribute("class", "card-body");
@@ -218,8 +230,10 @@ const renderSoundCard = (sound, volume) => {
 
     const player = renderAudioPlayer(sound, volume)
     
+    card.append(button)
+    card.append(image)
     body.append(title, player);
-    card.append(image, body);
+    card.append(imageContainer, body);
     compSoundContainer.append(card);
 
 }
@@ -245,9 +259,6 @@ const renderSoundListElement = (sound) => {
     li.append(p, addBtn, emptyP)
     soundList.append(li)
 }
-
-
-
 
 const renderCompositionList = (compositions) =>{
         compositions.forEach(composition =>{

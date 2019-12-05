@@ -3,16 +3,38 @@
     display: inline-grid;
 }
 
-.player {
-    width: 12rem;
-    height: 3rem
+.img-container {
+    position: relative;
+    display: inline-block;
 } 
 
 .card-img-top {
+    position: relative;
     width: 10rem;
     height: 10rem;
 } 
 
+.card-img-top .remove {
+    position: relative;
+    top: -20px;
+    right: 100%;
+    width: 2rem;
+    height: 2rem;
+    background-color: #555;
+    color: white;
+    font-size: 12px;
+    padding: 2px 2px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+
+  .player {
+    position: relative;
+    width: 12rem;
+    height: 3rem
+} 
 
 /* .sound-img {
     justify-self: center;
