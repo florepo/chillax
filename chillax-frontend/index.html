@@ -30,12 +30,12 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-2 text-center" id="sound-container">
+            <div class="col-sm-3 text-center" id="sound-container">
                 <h4>Select a track below...</h4>
                 <ul id="sound-list" class="list-unstyled">
                 </ul>
             </div>
-            <div class="col-sm-7">
+            <div class="col-sm-6">
                 <div class="row">
                     <div>
                         <div id="comp-player-btns">
@@ -52,10 +52,17 @@
                 <br>
                 <div class="row">
                     <div class="form-container">
-                        <form class="form">
+                        <!-- <form class="form">
                             <label>Save as new:</label>
                             <input type="text" name="name" value="" placeholder="Enter name..." class="input-text">
                             <input type="submit" name="submit" value="Save Soundscape" class="submit">
+                        </form> -->
+                        <form class="form">
+                            <div class="form-group">
+                                <label>Save as new:</label>
+                                <input type="text" name="name" value="" placeholder="Enter name..." class="input-text form-control">
+                            </div>
+                            <button type="submit" name="submit" class="submit btn btn-primary">Save Soundscape</button>
                         </form>
                     </div>
                 </div>
