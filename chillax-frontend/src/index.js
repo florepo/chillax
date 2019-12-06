@@ -140,7 +140,7 @@ const stopSoundHandler = (event) => {
 }
 
 const removeSoundHandler = (event, composition) => {
-    event.target.parentNode.parentNode.parentNode.remove()
+    event.target.parentNode.parentNode.parentNode.parentNode.remove()
 }
 
 //DATA HANDLING
@@ -336,7 +336,7 @@ const renderCompositionListElement = (composition) => {
 // SITE INITIALIZATION
 
 getSounds().then(data => renderSoundList(data))
-    // .then(data=>renderCompositionSounds(data))
+    .then(data=>renderCompositionSounds(data))
 getCompositions().then(data => renderCompositionList(data))
 
 
