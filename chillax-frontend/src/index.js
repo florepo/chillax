@@ -109,7 +109,7 @@ const loadSoundCompositionHandler = (event, composition) =>{
         let id = cs["sound_id"]
         let result  = null
         let sounds = composition.sounds.filter(obj => {return obj.id === id})
-        sounds = Array.from(sounds)
+        //sounds = Array.from(sounds)
         result = sounds[0]
         result["volume"]=cs.volume
         soundsArray.push(result)
@@ -176,13 +176,16 @@ const prepareCompositionData = () => {
     const soundCardNodes = compSoundContainer.childNodes
     let soundCards = []
     const data = {}
-    for(let i = 0; i < soundCardNodes.length; i++) {
-        soundCards[i] = soundCardNodes[i]
+    let i =0
+    if (soundCardNodes.length==2) {i=1}
+    for(i; i < soundCardNodes.length; i++) {
+    
+        let scn = soundCardNodes[i]
+        soundCards.push(scn)
     }
     soundCards.forEach((soundCard, index) => {
         data[index] = extractData(soundCard)
     })
-
     data[Object.keys(data).length] = name     // composition name
     data[Object.keys(data).length] = 1        // user_id should login functionality be implemented
     
@@ -198,6 +201,7 @@ const prepareCompositionForRender = () => {
 
 const renderCompositionSounds = (sounds) => {
     while (compSoundContainer.firstChild) compSoundContainer.removeChild(compSoundContainer.firstChild);
+    sounds = Array.from(sounds)
     return sounds.forEach((sound) => {
         renderSoundCard(sound)
     })
@@ -331,7 +335,8 @@ const renderCompositionListElement = (composition) => {
 
 // SITE INITIALIZATION
 
-getSounds().then(data => renderSoundList(data)).then(data=>renderCompositionSounds(data))
+getSounds().then(data => renderSoundList(data))
+    // .then(data=>renderCompositionSounds(data))
 getCompositions().then(data => renderCompositionList(data))
 
 
@@ -350,31 +355,32 @@ const renderSlider = (sound) =>{
     input.setAttribute("min", "0")
     input.setAttribute("max", "100")
 
-    let vol = null
     console.log("flag")
     console.log(sound.volume)
     console.log(!!!sound.volume)
-
+    
     console.log(input.value)
 
-    // if (!!!sound.volume) {
-    //     console.log(vol)
+    if (!!!sound.volume) {
+        console.log(input.value)
+        input.value = 20
+        console.log(input.value)
+    } else {
+        console.log(input.value)
+        input.value = sound.volume * 100
+        console.log(input.value)
+    }
+
+    // let vol = null
+    // debugger
+    // if (sound.volume == undefined) {
     //     vol = 50
-    //     console.log(vol)
     // } else {
-    //     console.log(vol)
     //     vol = sound.volume * 100
-    //     console.log(vol)
     // }
 
-    // if (sound.volume==undefined) {
-    //     soundPlayer.volume = 1
-    // } else {
-    // soundPlayer.volume = sound.volume
-    // }
-
-    input.setAttribute("value", `${vol}`)
-    console.log(input.value)
+    // input.setAttribute("value", `${vol}`)
+    // console.log(input.value)
 
     input.addEventListener("change", () => sliderHandler(event,input))
     div.append(span, input)
