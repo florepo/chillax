@@ -10,10 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_02_175724) do
+ActiveRecord::Schema.define(version: 2019_12_03_091823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "composition_sounds", force: :cascade do |t|
+    t.float "volume"
+    t.bigint "sound_id", null: false
+    t.bigint "composition_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["composition_id"], name: "index_composition_sounds_on_composition_id"
+    t.index ["sound_id"], name: "index_composition_sounds_on_sound_id"
+  end
+
+  create_table "compositions", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_compositions_on_user_id"
+  end
+
+  create_table "sounds", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "image_url"
+    t.string "sound_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -21,4 +48,7 @@ ActiveRecord::Schema.define(version: 2019_12_02_175724) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "composition_sounds", "compositions"
+  add_foreign_key "composition_sounds", "sounds"
+  add_foreign_key "compositions", "users"
 end
