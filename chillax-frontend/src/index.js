@@ -109,7 +109,6 @@ const loadSoundCompositionHandler = (event, composition) =>{
         let id = cs["sound_id"]
         let result  = null
         let sounds = composition.sounds.filter(obj => {return obj.id === id})
-        //sounds = Array.from(sounds)
         result = sounds[0]
         result["volume"]=cs.volume
         soundsArray.push(result)
@@ -176,10 +175,8 @@ const prepareCompositionData = () => {
     const soundCardNodes = compSoundContainer.childNodes
     let soundCards = []
     const data = {}
-    let i =0
-    if (soundCardNodes.length==2) {i=1}
-    for(i; i < soundCardNodes.length; i++) {
-    
+
+    for(let i = 0; i < soundCardNodes.length; i++) {
         let scn = soundCardNodes[i]
         soundCards.push(scn)
     }
@@ -335,8 +332,7 @@ const renderCompositionListElement = (composition) => {
 
 // SITE INITIALIZATION
 
-getSounds().then(data => renderSoundList(data))
-    .then(data=>renderCompositionSounds(data))
+getSounds().then(data => renderSoundList(data)).then(data=>renderCompositionSounds(data))
 getCompositions().then(data => renderCompositionList(data))
 
 
@@ -355,32 +351,11 @@ const renderSlider = (sound) =>{
     input.setAttribute("min", "0")
     input.setAttribute("max", "100")
 
-    console.log("flag")
-    console.log(sound.volume)
-    console.log(!!!sound.volume)
-    
-    console.log(input.value)
-
     if (!!!sound.volume) {
-        console.log(input.value)
-        input.value = 20
-        console.log(input.value)
+        input.value = 100
     } else {
-        console.log(input.value)
         input.value = sound.volume * 100
-        console.log(input.value)
     }
-
-    // let vol = null
-    // debugger
-    // if (sound.volume == undefined) {
-    //     vol = 50
-    // } else {
-    //     vol = sound.volume * 100
-    // }
-
-    // input.setAttribute("value", `${vol}`)
-    // console.log(input.value)
 
     input.addEventListener("change", () => sliderHandler(event,input))
     div.append(span, input)
