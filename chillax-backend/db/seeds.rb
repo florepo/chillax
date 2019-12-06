@@ -7,15 +7,22 @@ CompositionSound.destroy_all
 puts "Pre-existing data cleared"
 
 # Sounds
-Sound.create(name: "Sound 1", description: "Weather: Rain, Thunder, claps and rolls at various distances", sound_url: "http://bbcsfx.acropolis.org.uk/assets/07027060.wav", image_url: "https://image.flaticon.com/icons/svg/414/414974.svg")
+Sound.create(name: "Summer Thunder", description: "Weather: Rain, Thunder, claps and rolls at various distances", sound_url: "http://bbcsfx.acropolis.org.uk/assets/07027060.wav", image_url: "https://image.flaticon.com/icons/svg/414/414974.svg")
 
-Sound.create(name: "Sound 2", description: "Birds: A country idyll, countryside atmosphere", sound_url: "http://bbcsfx.acropolis.org.uk/assets/07074106.wav", image_url: "https://image.flaticon.com/icons/svg/141/141762.svg")
+Sound.create(name: "Country Birds", description: "Birds: A country idyll, countryside atmosphere", sound_url: "http://bbcsfx.acropolis.org.uk/assets/07074106.wav", image_url: "https://image.flaticon.com/icons/svg/141/141762.svg")
 
-Sound.create(name: "Sound 3", description: "Small river flowing", sound_url: "http://bbcsfx.acropolis.org.uk/assets/07060074.wav", image_url: "https://image.flaticon.com/icons/svg/1400/1400342.svg")
+Sound.create(name: "At the Creek", description: "Small river flowing", sound_url: "http://bbcsfx.acropolis.org.uk/assets/07060074.wav", image_url: "https://image.flaticon.com/icons/svg/1400/1400342.svg")
 
-Sound.create(name: "Sound 4", description: "Crickets", sound_url: "http://bbcsfx.acropolis.org.uk/assets/07043332.wav", image_url: "https://image.flaticon.com/icons/svg/616/616564.svg")
+Sound.create(name: "Crickets", description: "Crickets", sound_url: "http://bbcsfx.acropolis.org.uk/assets/07043332.wav", image_url: "https://image.flaticon.com/icons/svg/616/616564.svg")
 
-Sound.create(name: "Sound 5", description: "Fireplace", sound_url: "http://bbcsfx.acropolis.org.uk/assets/07059050.wav", image_url: "https://image.flaticon.com/icons/svg/1365/1365093.svg")
+Sound.create(name: "A Warm Fire", description: "Fireplace", sound_url: "http://bbcsfx.acropolis.org.uk/assets/07059050.wav", image_url: "https://image.flaticon.com/icons/svg/1365/1365093.svg")
+
+Sound.create(name: "In the Woodlands", description: "Woodland - summer afternoon, Waimangu Volcanic Valle", sound_url: "http://bbcsfx.acropolis.org.uk/assets/07056029.wav", image_url: "https://image.flaticon.com/icons/svg/2113/2113709.svg")
+
+Sound.create(name: "At the Lake", description: "Sunset at Lake Venados, Argentina", sound_url: "http://bbcsfx.acropolis.org.uk/assets/07063059.wav", image_url: "https://image.flaticon.com/icons/svg/1588/1588764.svg")
+
+Sound.create(name: "On the ship", description: "Sailing Ship: Gaff-rigged Ketch, water slopping and bubbling in bilges, distant seawash.", sound_url: "http://bbcsfx.acropolis.org.uk/assets/07034057.wav", image_url: "https://image.flaticon.com/icons/svg/208/208315.svg")
+
 
 puts "Sample sound snippets created"
 
