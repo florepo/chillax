@@ -88,7 +88,6 @@ const submitHandler = (event) => {
     const soundCardNodes = compSoundContainer.childNodes
     let soundCards = []
     const data = {}
-
     for(let i = 0; i < soundCardNodes.length; i++) {
         soundCards[i] = soundCardNodes[i]
     }
@@ -129,6 +128,7 @@ const clearComposition = () => {
 }
 
 const loadSoundCompositionHandler = (event, composition) =>{
+    console.log("test1")
     let soundsArray = []
     composition.composition_sounds.forEach(cs =>{
         let id = cs["sound_id"]
@@ -206,7 +206,9 @@ const createComposition = (data) => {
 // RENDER SOUNDS
 const renderCompositionSounds = (sounds) => {
     while (compSoundContainer.firstChild) compSoundContainer.removeChild(compSoundContainer.firstChild);
+    console.log("test2")
     return sounds.forEach((sound) => {
+        console.log("test3")
         renderSoundCard(sound)
     })
 }
@@ -281,8 +283,8 @@ const renderSoundCard = (sound) => {
     controls.append(playBtn, pauseBtn, stopBtn, removeBtn);
 
     const player = renderAudioPlayer(sound)
-    
-    const slider = renderSlider()
+
+    const slider = renderSlider(sound)
 
     card.append(image)
     body.append(title, slider, player, controls);
@@ -355,7 +357,7 @@ getCompositions().then(data => renderCompositionList(data))
 
 // RENDER AUDIO ELEMENTS
 
-const renderSlider = () =>{
+const renderSlider = (sound) =>{
     const div = document.createElement("div")
     div.setAttribute("class", "slider-container")
 
@@ -367,7 +369,9 @@ const renderSlider = () =>{
     input.setAttribute("type", "range")
     input.setAttribute("min", "0")
     input.setAttribute("max", "100")
-    input.setAttribute("value", "62")
+    console.log(sound.volume)
+    let vol = sound.volume * 100
+    input.setAttribute("value", `${vol}`)
     //input.setAttribute("oninput", "displayValue(event)")
     input.addEventListener("change", () => sliderHandler(event,input))
     div.append(span, input)
