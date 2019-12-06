@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Chillax</title>
+    <title>chillax</title>
 
     <script type="text/javascript" src="src/index.js" defer></script>
 
@@ -15,25 +15,21 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="https://cdn.plyr.io/3.5.6/plyr.polyfilled.js"></script>
-
-    <!-- JQuery for tooltips -->
-    <script>
-        $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();   
-        });
-    </script>
+    
+    <!-- Font Awesome-->
+    <script src="https://kit.fontawesome.com/85fef6a22e.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <!-- Banner -->
 
-    <div class="jumbotron text-center">g
-        <h1>Chillax</h1>
+    <div class="jumbotron text-center">
+        <h1>chillax</h1>
         <p>Soundscape Composer</p> 
     </div>
     
     <!-- Workspace -->
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-sm-3 text-center" id="sound-container">
                 <h4>Select a track below...</h4>
@@ -44,23 +40,30 @@
                 <div class="row">
                     <div>
                         <div id="comp-player-btns">
-                            <button id="playCompBtn">Play</button>
-                            <button id="pauseCompBtn">Pause</button>
-                            <button id="stopCompBtn">Stop</button>
-                            <button id="clearAllBtn">Clear All</button>
-                            <label id="current-comp-name">My Soundscape</label>
+                            <h3 id="current-comp-name">My Soundscape</h3>
+                            <button id="playCompBtn" class="btn btn-primary"><i class="fa fa-play"></i></button>
+                            <button id="pauseCompBtn" class="btn btn-primary"><i class="fa fa-pause"></i></button>
+                            <button id="stopCompBtn" class="btn btn-primary"><i class="fa fa-stop"></i></button>
+                            <button id="clearAllBtn" class="btn btn-warning">Clear All</button>
                         </div>
                     </div>
-                    <div id="composition-sound-container">
+                    <div id="composition-sound-container" class="text-center">
                     </div>
                 </div>
                 <br>
                 <div class="row">
                     <div class="form-container">
-                        <form class="form">
+                        <!-- <form class="form">
                             <label>Save as new:</label>
                             <input type="text" name="name" value="" placeholder="Enter name..." class="input-text">
                             <input type="submit" name="submit" value="Save Soundscape" class="submit">
+                        </form> -->
+                        <form class="form">
+                            <div class="form-group">
+                                <label>Save as new:</label>
+                                <input type="text" name="name" value="" placeholder="Enter name..." class="input-text form-control">
+                            </div>
+                            <button type="submit" name="submit" class="submit btn btn-primary">Save Soundscape</button>
                         </form>
                     </div>
                 </div>

@@ -223,7 +223,13 @@ const renderSoundCard = (sound) => {
     image.setAttribute("class", "card-img-top");
     image.setAttribute("alt", "Sound Image");
     image.src = sound.image_url;
-    image.addEventListener("click", ()=> imageHandler(event))
+    image.addEventListener("click", ()=> imageHandler(event)) 
+
+    const button = document.createElement("button");
+    button.setAttribute("class", "remove close");
+    button.addEventListener("click", () => removeHandler(event, sound))
+    button.innerText = "x"
+   
 
     const body = document.createElement("div");
     body.setAttribute("class", "card-body");
@@ -287,7 +293,10 @@ const renderSoundListElement = (sound) => {
 
     const addBtn = document.createElement("button")
     addBtn.setAttribute("class", "btn btn-primary")
-    addBtn.innerText = "+"
+    
+    const i = document.createElement("i")
+    i.setAttribute("class", "fas fa-plus")
+    addBtn.append(i)
     addBtn.addEventListener("click", () => addHandler(event, sound))
 
     const emptyP = document.createElement("p")
