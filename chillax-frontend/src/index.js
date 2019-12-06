@@ -286,6 +286,7 @@ const renderSoundListElement = (sound) => {
     p.innerText = sound.name
 
     const addBtn = document.createElement("button")
+    addBtn.setAttribute("class", "btn btn-primary")
     addBtn.innerText = "+"
     addBtn.addEventListener("click", () => addHandler(event, sound))
 
@@ -310,10 +311,12 @@ const renderCompositionListElement = (composition) => {
     p.innerText = composition.name
 
     const loadBtn = document.createElement("button")
+    loadBtn.setAttribute("class", "btn btn-primary")
     loadBtn.innerText = "Load"
     loadBtn.addEventListener("click", () => loadSoundCompositionHandler(event, composition))
     
     const delBtn = document.createElement("button")
+    delBtn.setAttribute("class", "btn btn-danger")
     delBtn.innerText = "Delete"
     delBtn.addEventListener("click", () => delCompHandler(event, composition))
 

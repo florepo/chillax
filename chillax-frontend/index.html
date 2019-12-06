@@ -3,27 +3,42 @@
   <head>
     <meta charset="utf-8">
     <title>Chillax</title>
+
     <script type="text/javascript" src="src/index.js" defer></script>
+
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="https://cdn.plyr.io/3.5.6/plyr.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"defer></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"defer></script>
-    <script src="assets/slider.js" defer></script>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.plyr.io/3.5.6/plyr.polyfilled.js"></script>
+
+    <!-- JQuery for tooltips -->
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();   
+        });
+    </script>
   </head>
   <body>
-    <div class="jumbotron text-center">
+    <!-- Banner -->
+
+    <div class="jumbotron text-center">g
         <h1>Chillax</h1>
-        <p>Compose your soundscape</p> 
+        <p>Soundscape Composer</p> 
     </div>
+    
+    <!-- Workspace -->
+
     <div class="container">
         <div class="row">
-            <div class="col-sm-3" id="sound-container">
-                    <ul id="sound-list">
-                    </ul>
+            <div class="col-sm-3 text-center" id="sound-container">
+                <h4>Select a track below...</h4>
+                <ul id="sound-list" class="list-unstyled">
+                </ul>
             </div>
             <div class="col-sm-6">
                 <div class="row">
@@ -43,23 +58,75 @@
                 <div class="row">
                     <div class="form-container">
                         <form class="form">
-                            <!-- <h3>Create a composition!</h3> -->
                             <label>Save as new:</label>
                             <input type="text" name="name" value="" placeholder="Enter name..." class="input-text">
-                    
                             <input type="submit" name="submit" value="Save Soundscape" class="submit">
                         </form>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-3" id="sound-container">
+            <div class="col-sm-3 text-center" id="composition-sound-container">
                 <div id="composition-container">
-                    <ul id="composition-list">
+                    <h4>Available compositions</h4>
+                    <ul id="composition-list" class="list-unstyled">
                     </ul>
                 </div>
             </div>
         </div>
     </div>
-    
+
+    <!-- Footer -->
+
+    <footer class="footer-bs">
+        <div class="row">
+            <div class="col-xs-4 text-center">
+                <h5 class="text-uppercase">Creators</h5>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="https://github.com/flow1981" target="_blank">Florian Stagliano</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/tishchungoora" target="_blank">Tish Chungoora</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-4 text-center">
+                <h5 class="text-uppercase">Tech Stack Used</h5>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Language_Resources" target="_blank">JavaScript</a>
+                        </li>
+                    <li>
+                        <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a>
+                    </li>
+                    <li>
+                        <a href="https://www.ruby-lang.org/" target="_blank">Ruby</a>
+                    </li>
+                    <li>
+                        <a href="https://rubyonrails.org/" target="_blank">Rails</a>
+                    </li>
+                    <li>
+                        <a href="https://guides.rubyonrails.org/active_record_basics.html" target="_blank">Active Record</a>
+                    </li>
+                    <li>
+                        <a href="https://www.postgresql.org/" target="_blank">PostgreSQL</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-4 text-center">
+                <h5 class="text-uppercase">Acknowledgements</h5>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="https://www.flaticon.com/" target="_blank">Flaticon</a>   
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <br>
+        <div class="row text-center">
+            <div>© 2019</div>
+        </div>
+    </footer>
+
   </body>
 </html>
