@@ -34,11 +34,9 @@ u3 = User.create(name: "testuser3")
 puts "Sample users created"
 
 # Compositions
-Composition.create(name: "Composition 1", user_id: User.all.sample.id)
-Composition.create(name: "Composition 2", user_id: User.all.sample.id)
-Composition.create(name: "Composition 3", user_id: User.all.sample.id)
-Composition.create(name: "Composition 4", user_id: User.all.sample.id)
-Composition.create(name: "Composition 5", user_id: User.all.sample.id)
+Composition.create(name: "Soundscape 1", user_id: User.all.sample.id)
+Composition.create(name: "Soundscape 2", user_id: User.all.sample.id)
+Composition.create(name: "Soundscape 3", user_id: User.all.sample.id)
 
 puts "Sample compositions created"
 
