@@ -24,18 +24,15 @@ const apiHeaders = {
 const get = (url) => {
     return fetch(url)
         .then(response => response.json())
-        //.then(json => console.log(json))
 }
 
 const post = (url, data) => {
-    //debugger
     const configObject =  {
         method: "POST",
         headers: apiHeaders,
         body: JSON.stringify(data)
     }
     return fetch(url, configObject)
-        //.then(response => response.json())
 }
 
 const patch = (instance_url, data) => {
@@ -53,7 +50,6 @@ const destroy = (instance_url) => {
         method: "DELETE"
       }
     return fetch(instance_url, configObject)
-        //.then(response => response.json()) ehy does this need to be commented out?
 }
 
 // EVENT LISTENERS
@@ -85,9 +81,6 @@ const addHandler = (event, sound, volume) => {
 const delCompHandler = (event, composition) => {
     deleteComposition(event, composition.id)
 }
-const removeHandler = (event, composition) => {
-    event.target.parentNode.remove()
-}
 
 const submitHandler = (event) => {
     event.preventDefault()
@@ -111,8 +104,7 @@ const submitHandler = (event) => {
 }
 
 const playComposition = () => {
-    const compSoundList = compSoundContainer.querySelectorAll("audio")
-    
+    const compSoundList = compSoundContainer.querySelectorAll("audio")  
     return compSoundList.forEach((compSound) => {
         compSound.play()
     })
@@ -120,7 +112,6 @@ const playComposition = () => {
 
 const pauseComposition = () => {
     const compSoundList = compSoundContainer.querySelectorAll("audio")
-    
     return compSoundList.forEach((compSound) => {
         compSound.pause()
     })
@@ -128,7 +119,6 @@ const pauseComposition = () => {
 
 const stopComposition = () => {
     const compSoundList = compSoundContainer.querySelectorAll("audio")
-    
     return compSoundList.forEach((compSound) => {
         compSound.pause()
         compSound.currentTime = 0
@@ -136,7 +126,6 @@ const stopComposition = () => {
 }
 
 const clearComposition = () => {
-    console.log("clicked")
     while (compSoundContainer.firstChild) compSoundContainer.removeChild(compSoundContainer.firstChild);
 }
 
@@ -147,7 +136,6 @@ const loadSoundCompositionHandler = (event, composition) =>{
         let result  = null
         let sounds = composition.sounds.filter(obj => {return obj.id === id})
         sounds = Array.from(sounds)
-        console.log(sounds)
         result = sounds[0]
         result["volume"]=cs.volume
         soundsArray.push(result)
@@ -156,7 +144,35 @@ const loadSoundCompositionHandler = (event, composition) =>{
     currentCompName.innerText = composition.name
 }
 
+const sliderHandler = (event, input) => {
+    event.target.parentNode.parentNode.querySelector("audio").volume = input.value/100
+    event.target.parentNode.parentNode.querySelector("audio").play()
+}
 
+const imageHandler = (event) =>{
+    console.log("click")
+}
+
+const playSoundHandler = (event) => {
+    event.target.parentNode.parentNode.querySelector("audio").play()
+}
+
+const pauseSoundHandler = (event) => {
+    console.log("pause")
+    event.target.parentNode.parentNode.querySelector("audio").pause()
+}
+
+const stopSoundHandler = (event) => {
+    console.log("stop")
+    event.target.parentNode.parentNode.querySelector("audio").pause()
+    event.target.parentNode.parentNode.querySelector("audio").currentTime = 0;
+}
+
+
+const removeSoundHandler = (event, composition) => {
+    console.log("remove")
+    event.target.parentNode.parentNode.parentNode.remove()
+}
 
 //DATA HANDLING
 
@@ -181,15 +197,10 @@ const extractData = (soundCard) => {
     return {id: id, volume: volume}
 }
 
-
 const createComposition = (data) => {
     let url = URL_COMPOSITIONS
-    return post(url, data)//.then(composition => renderCompositionElement(composition))
+    return post(url, data)
 }
-
-// SITE INITIALIZATION
-getSounds().then(data => renderSoundList(data))
-getCompositions().then(data => renderCompositionList(data))
 
 
 // RENDER SOUNDS
@@ -211,13 +222,8 @@ const renderSoundCard = (sound) => {
     const image = document.createElement("img");
     image.setAttribute("class", "card-img-top");
     image.setAttribute("alt", "Sound Image");
-    image.src = sound.image_url;  
-
-    const button = document.createElement("button");
-    button.setAttribute("class", "remove");
-    button.addEventListener("click", () => removeHandler(event, sound))
-    button.innerText = "x"
-   
+    image.src = sound.image_url;
+    image.addEventListener("click", ()=> imageHandler(event))
 
     const body = document.createElement("div");
     body.setAttribute("class", "card-body");
@@ -231,21 +237,47 @@ const renderSoundCard = (sound) => {
     p.setAttribute("class", "card-text");
     p.innerText = sound.description
 
+    const controls = document.createElement("span")
+
+    const playBtn = document.createElement("button");
+    playBtn.setAttribute("class", "play");
+    playBtn.addEventListener("click", () => playSoundHandler(event, sound))
+    playBtn.innerText = ">"
+   
+    const pauseBtn = document.createElement("button");
+    pauseBtn.setAttribute("class", "pause");
+    pauseBtn.addEventListener("click", () => pauseSoundHandler(event, sound))
+    pauseBtn.innerText = "||"
+
+    const stopBtn = document.createElement("button");
+    stopBtn.setAttribute("class", "stop");
+    stopBtn.addEventListener("click", () => stopSoundHandler(event, sound))
+    stopBtn.innerText = "[]"
+
+    const removeBtn = document.createElement("button");
+    removeBtn.setAttribute("class", "remove");
+    removeBtn.addEventListener("click", () => removeSoundHandler(event, sound))
+    removeBtn.innerText = "remove"
+
+    controls.append(playBtn, pauseBtn, stopBtn, removeBtn);
+
     const player = renderAudioPlayer(sound)
     
-    card.append(button)
+    const slider = renderSlider()
+
     card.append(image)
-    body.append(title, player);
+    body.append(title, slider, player, controls);
     card.append(imageContainer, body);
     compSoundContainer.append(card);
 
+    return sound
 }
 
 const renderSoundList = (soundArray) => {
-    //debugger
-    return soundArray.forEach((sound) => {
-        renderSoundListElement(sound)
+    let result = soundArray.map((sound) => {
+        return renderSoundListElement(sound)
     })
+    return result
 }
 
 const renderSoundListElement = (sound) => {
@@ -261,6 +293,7 @@ const renderSoundListElement = (sound) => {
     
     li.append(p, addBtn, emptyP)
     soundList.append(li)
+    return sound
 }
 
 const renderCompositionList = (compositions) =>{
@@ -290,20 +323,40 @@ const renderCompositionListElement = (composition) => {
     compositionList.append(li)
 }
 
-// RENDER AUDIO PLAYER
+// SITE INITIALIZATION
+getSounds().then(data => renderSoundList(data)).then(data=>renderCompositionSounds(data))
+getCompositions().then(data => renderCompositionList(data))
+
+
+// RENDER AUDIO ELEMENTS
+
+const renderSlider = () =>{
+    const div = document.createElement("div")
+    div.setAttribute("class", "slider-container")
+
+    const span = document.createElement("span")
+    span.setAttribute("id", "val")
+
+    const input = document.createElement("input")
+    input.setAttribute("id", "slide")
+    input.setAttribute("type", "range")
+    input.setAttribute("min", "0")
+    input.setAttribute("max", "100")
+    input.setAttribute("value", "62")
+    //input.setAttribute("oninput", "displayValue(event)")
+    input.addEventListener("change", () => sliderHandler(event,input))
+    div.append(span, input)
+    return div
+}
 
 const renderAudioPlayer = (sound) => {
-    console.log(sound)
-    console.log(sound.volume)
-    
-
     const soundPlayer = document.createElement("audio")
     soundPlayer.src = sound.sound_url
-    //soundPlayer.volume = volume
     soundPlayer.className = "player"
-    soundPlayer.setAttribute("controls", "")
+    //soundPlayer.setAttribute("controls", "")
     soundPlayer.setAttribute("controlsList", "nodownload")
     soundPlayer.setAttribute("loop", "")
+
     if(sound.volume==undefined) {
         soundPlayer.volume = 1
     } else {
@@ -312,8 +365,6 @@ const renderAudioPlayer = (sound) => {
 
     soundPlayer.setAttribute("border-radius", "2px");
 
-    const player = new Plyr('#player');
 
     return soundPlayer
 }
-

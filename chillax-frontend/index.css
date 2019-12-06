@@ -1,5 +1,6 @@
 .card {
-    width: 20rem;
+    padding: 2px 2px;
+    width: 14rem;
     display: inline-grid;
 }
 
@@ -21,9 +22,9 @@
     text-align: center;
 }
 
-.card-img-top .remove {
+/* .card-img-top .remove {
     position: relative;
-    top: -20px;
+    top: 60px;
     right: 100%;
     width: 2rem;
     height: 2rem;
@@ -35,7 +36,7 @@
     border: none;
     cursor: pointer;
     border-radius: 5px;
-  }
+  } */
 
 
   .player {
