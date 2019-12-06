@@ -1,9 +1,11 @@
 /* SOUND CARD */
 
 .card {
-    width: 20rem;
+    width: 21rem;
     display: inline-grid;
     margin: 20px;
+    padding: 5px;
+    box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 #composition-sound-container .card button {
@@ -48,7 +50,7 @@
 .player {
     position: relative;
     width: 20rem;
-    height: 3rem
+    height: 3rem;
 }
 
 /* SOUND LIST STYLES */
@@ -56,7 +58,7 @@
 #sound-list li {
     margin: 10px;
     padding: 10px;
-    background-color: rgb(191, 231, 245);
+    background-color: rgb(241, 209, 173);
     /* opacity: 0.7; */
     border-radius: 10px;
     text-align: center;
