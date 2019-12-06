@@ -2,7 +2,7 @@
 
 chillax is a lightweight, open-source single-page application built by Tish Chungoora and Florian Stagliano. The app was conceived for users to create personalised soundscapes using sound snippets available from a library of sounds. The app was built within a one-week timescale using a tech stack consisting of Rails API, Ruby, Postgres, JavaScript and Bootstrap.
 
-![Image of chillax](https://imgur.com/a/sbKjysH)
+![Image of chillax](https://i.imgur.com/zG7Kjlt.png)
 
 ## Motivation
 
