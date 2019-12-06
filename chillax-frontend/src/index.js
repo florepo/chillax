@@ -89,16 +89,15 @@ const submitHandler = (event) => {
     let soundCards = []
     const data = {}
 
-    for(let i = 1; i < soundCardNodes.length; i++) {
+    for(let i = 0; i < soundCardNodes.length; i++) {
         soundCards[i] = soundCardNodes[i]
     }
     soundCards.forEach((soundCard, index) => {
         data[index] = extractData(soundCard)
    
     })
-    data[Object.keys(data).length+1] = name     //composition name
-    data[Object.keys(data).length+1] = 1        //user_id
-
+    data[Object.keys(data).length] = name     //composition name
+    data[Object.keys(data).length] = 1        //user_id
     createComposition(data).then(response => response.json()).then(json => renderCompositionListElement(json))
         .then(currentCompName.innerText = name)
 }
