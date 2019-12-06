@@ -154,18 +154,19 @@ const imageHandler = (event) =>{
 }
 
 const playSoundHandler = (event) => {
-    event.target.parentNode.parentNode.querySelector("audio").play()
+    let player = event.target.parentNode.parentNode.parentElement.querySelector("audio")
+    player.play()
 }
 
 const pauseSoundHandler = (event) => {
-    console.log("pause")
-    event.target.parentNode.parentNode.querySelector("audio").pause()
+    let player = event.target.parentNode.parentNode.parentElement.querySelector("audio")
+    player.pause()
 }
 
 const stopSoundHandler = (event) => {
-    console.log("stop")
-    event.target.parentNode.parentNode.querySelector("audio").pause()
-    event.target.parentNode.parentNode.querySelector("audio").currentTime = 0;
+    let player = event.target.parentNode.parentNode.parentElement.querySelector("audio")
+    player.pause()
+    player.currentTime = 0;
 }
 
 
@@ -225,10 +226,10 @@ const renderSoundCard = (sound) => {
     image.src = sound.image_url;
     image.addEventListener("click", ()=> imageHandler(event)) 
 
-    const button = document.createElement("button");
-    button.setAttribute("class", "remove close");
-    button.addEventListener("click", () => removeHandler(event, sound))
-    button.innerText = "x"
+    // const button = document.createElement("button");
+    // // button.setAttribute("class", "remove close");
+    // button.addEventListener("click", () => removeHandler(event, sound))
+    // button.innerText = "x"
    
 
     const body = document.createElement("div");
@@ -246,24 +247,37 @@ const renderSoundCard = (sound) => {
     const controls = document.createElement("span")
 
     const playBtn = document.createElement("button");
-    playBtn.setAttribute("class", "play");
+    playBtn.setAttribute("class", "play btn btn-outline-primary");
+    const iPlay = document.createElement("i")
+    iPlay.setAttribute("class", "fa fa-play")
+    playBtn.append(iPlay)
     playBtn.addEventListener("click", () => playSoundHandler(event, sound))
-    playBtn.innerText = ">"
+    // playBtn.innerText = ">"
    
     const pauseBtn = document.createElement("button");
-    pauseBtn.setAttribute("class", "pause");
+    pauseBtn.setAttribute("class", "pause btn btn-outline-primary");
+    const iPause = document.createElement("i")
+    iPause.setAttribute("class", "fa fa-pause")
+    pauseBtn.append(iPause)
     pauseBtn.addEventListener("click", () => pauseSoundHandler(event, sound))
-    pauseBtn.innerText = "||"
+    // pauseBtn.innerText = "||"
 
     const stopBtn = document.createElement("button");
-    stopBtn.setAttribute("class", "stop");
+    stopBtn.setAttribute("class", "stop btn btn-outline-secondary");
+    const iStop = document.createElement("i")
+    iStop.setAttribute("class", "fa fa-stop")
+    stopBtn.append(iStop)
     stopBtn.addEventListener("click", () => stopSoundHandler(event, sound))
-    stopBtn.innerText = "[]"
+    // stopBtn.innerText = "[]"
 
     const removeBtn = document.createElement("button");
-    removeBtn.setAttribute("class", "remove");
+    removeBtn.setAttribute("class", "remove btn btn-secondary");
+    const iClose = document.createElement("i")
+    iClose.setAttribute("class", "fas fa-times")
+    iClose.style.color = "red"
+    removeBtn.append(iClose)
     removeBtn.addEventListener("click", () => removeSoundHandler(event, sound))
-    removeBtn.innerText = "remove"
+    // removeBtn.innerText = "x"
 
     controls.append(playBtn, pauseBtn, stopBtn, removeBtn);
 

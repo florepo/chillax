@@ -9,10 +9,9 @@
     border-radius: 10px;
 }
 
-#composition-sound-container .card button {
-    color: red;
-    opacity: 1;
-    margin-bottom: 5px;
+#close {
+    color: #ff0000;
+    /* margin-bottom: 5px; */
 }
 
 .img-container {
@@ -25,6 +24,7 @@
     margin: 0 auto;
     width: 10rem;
     height: 10rem;
+    padding-top: 8px;
 }
 
 .card-title {
@@ -91,6 +91,10 @@
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 20px;
+}
+
+.slider-container {
+    margin: 0 auto;
 }
 
 /* COMPOSITION LIST STYLES */
