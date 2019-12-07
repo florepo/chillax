@@ -6,14 +6,14 @@ chillax is a lightweight, open-source single-page application built by Tish Chun
 
 ## Motivation
 
-- We wanted to showcase an app built using Rails backend and JavaScript, HTML and CSS for the frontend.
+- We wanted to showcase an app built using Rails backend, as well as JavaScript, HTML and CSS for the frontend.
 - We believe in the balance between working hard and taking time out to recharge as a key for staying productive and agile in a software development environment.
-- We aimed to go beyond our the learnings from our curriculum by incorporating audio manipulation and Bootstrap CSS styling.
+- We aimed to go beyond the learnings from our curriculum by incorporating audio manipulation and Bootstrap CSS styling.
 
 ## Stack
 
-- Rails and Progres for backend
-- JavaScript, HTML5 Audio and Bootstrap for frontend
+- Rails and Postgres for the backend
+- JavaScript, HTML5 Audio and Bootstrap for the frontend
 
 ## Acknowledgements
 
