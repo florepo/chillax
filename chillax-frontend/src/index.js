@@ -133,13 +133,15 @@ const pauseSoundHandler = (event) => {
 }
 
 const stopSoundHandler = (event) => {
-    let player = event.target.parentNode.parentNode.parentElement.querySelector("audio")
+    const player = event.target.parentNode.parentNode.parentElement.querySelector("audio")
     player.pause()
     player.currentTime = 0;
 }
 
 const removeSoundHandler = (event, composition) => {
-    event.target.parentNode.parentNode.parentNode.parentNode.remove()
+    const parentCard = event.target.closest(".card")
+    // console.log(parentCard) 
+    parentCard.remove()
 }
 
 //DATA HANDLING
@@ -216,8 +218,7 @@ const renderSoundCard = (sound) => {
     image.setAttribute("class", "card-img-top");
     image.setAttribute("alt", "Sound Image");
     image.src = sound.image_url;
-    image.addEventListener("click", ()=> imageHandler(event)) 
-
+ 
     const body = document.createElement("div");
     body.setAttribute("class", "card-body");
     body.setAttribute("id", `${sound.id}`);
